@@ -1,0 +1,247 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+/* Navigation container */
+
+body {
+  margin: 0;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  padding: 0;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Keeps logo on the left and nav/auth buttons on the right */
+  padding: 20px 65px;
+  background-color: #ffffff;
+  color: black;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  flex-wrap: nowrap; /* Prevent wrapping of elements */
+  position: sticky; /* Make the navbar stick */
+  top: 0; /* Stick to the top of the viewport */
+  z-index: 3000; /* Ensure the navbar stays above other content */
+  border-bottom: 5px solid #e77d33;
+}
+.navbar {
+  transition: opacity 0.5s ease-in-out; /* Smooth transition for visibility */
+}
+
+/* Updated nav-links to align items horizontally */
+.navbar .nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Align items to the right */
+  flex-grow: 1; /* Allow it to take up remaining space */
+}
+
+/* Navigation links */
+.navbar .nav-links a {
+  font-family: "Open Sans", sans-serif;
+  color: #2e3849; /* Text color */
+  text-decoration: none; /* No underline by default */
+  padding: 10px 20px;
+  font-size: 16px;
+  border-bottom: 2px solid transparent; /* Invisible border initially */
+  transition: border-bottom 0.5s, color 0.5s; /* Smooth transition for underline effect and color */
+  display: flex; /* Use flexbox for vertical alignment */
+  align-items: center; /* Center text vertically */
+}
+
+/* Hover effect for nav links */
+.navbar .nav-links a:hover {
+  color: #e77d33;
+}
+
+.navbar .nav-links .login-btn {
+  font-family: "Open Sans", sans-serif;
+  background-color: #4aa629; /* Green background */
+  color: white; /* White text */
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  text-decoration: none;
+  display: inline-flex; /* Changed to inline-flex for better alignment */
+  align-items: center; /* Center text vertically */
+  margin-left: 15px; /* Add some space between the last nav link and the login button */
+}
+
+.navbar .nav-links .login-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #449e25;
+  transform: rotateX(0deg);
+  transform-origin: top;
+  transition: transform 0.5s ease;
+  z-index: -1;
+}
+
+.navbar .nav-links .login-btn:hover::before {
+  transform: rotateX(90deg);
+}
+
+.navbar .nav-links .login-btn:hover {
+  color: white; /* Keep text white on hover */
+}
+
+.navbar .nav-links .employer-btn {
+  font-family: "Open Sans", sans-serif;
+  background-color: white;
+  color: #449e25;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  border: 2px solid #449e25;
+  margin: 0 0 0 10px;
+  transition: background-color 0.3s ease; /* Only transition the background color */
+}
+
+/* Add hover state */
+.navbar .nav-links .employer-btn:hover {
+  background-color: rgba(
+    71,
+    136,
+    49,
+    0.1
+  ); /* Slight background tint on hover */
+  color: #449e25; /* Keep the same text color */
+}
+
+/* Logo and text container */
+.navbar .logo-container {
+  display: flex;
+  align-items: center;
+}
+
+/* Logo */
+.navbar .logo-container img {
+  width: 280px; /* Adjusted size for both desktop and mobile */
+}
+
+/* Menu Toggle Button */
+.menu-toggle {
+  display: none; /* Hide by default */
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #fd6f41; /* Match the button color to your theme */
+  margin-left: 20px; /* Space between the logo and button */
+}
+
+/* Media Query for Mobile Devices */
+/* Media Query for Mobile Devices */
+@media (max-width: 1100px) {
+  .navbar {
+    padding: 15px 30px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .navbar .nav-links .employer-btn {
+    margin: 10px 0 0 0;
+  }
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  .menu-toggle {
+    display: block;
+    padding: 0;
+    margin-left: 0;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #fd6f41;
+  }
+
+  .navbar .logo-container img {
+    margin-left: 10px;
+    width: 240px;
+  }
+
+  .navbar .nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.5s ease, max-height 0.5s ease;
+  }
+
+  .navbar.active .nav-links {
+    margin-top: 10px;
+    opacity: 1;
+    max-height: 500px;
+  }
+
+  .navbar .nav-links a {
+    font-size: 16px;
+    padding: 8px 0;
+    text-align: left;
+    width: fit-content;
+  }
+
+  .navbar .nav-links .login-btn {
+    margin-top: 10px;
+    margin-left: 0;
+    width: fit-content;
+  }
+}
+
+/* New Media Query for Mobile Devices (560px and below) */
+@media (max-width: 560px) {
+  .navbar {
+    padding: 15px 20px; /* Reduced padding for smaller screens */
+  }
+
+  .navbar .logo-container img {
+    width: 220px; /* Smaller logo for mobile */
+    margin-left: 10px;
+  }
+
+  .menu-toggle {
+    font-size: 25px; /* Slightly smaller menu icon */
+  }
+
+  .navbar .nav-links a {
+    font-size: 14px; /* Smaller font size for navigation links */
+    padding: 6px 0;
+  }
+
+  .navbar .nav-links .login-btn,
+  .navbar .nav-links .employer-btn {
+    font-size: 14px; /* Smaller font size for buttons */
+    padding: 8px 15px; /* Reduced padding for buttons */
+    justify-content: center; /* Center button text */
+    margin: 5px 0; /* Reduced margin between buttons */
+  }
+
+  .navbar.active .nav-links {
+    margin-top: 5px; /* Reduced margin */
+  }
+
+  /* Ensure the navbar's shadow doesn't get cut off */
+  .navbar {
+    border-bottom: 3px solid #e77d33; /* Slightly thinner border */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15); /* Smaller shadow */
+  }
+}

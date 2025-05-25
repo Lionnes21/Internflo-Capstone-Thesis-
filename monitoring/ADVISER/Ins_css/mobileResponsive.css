@@ -1,0 +1,213 @@
+/* Add these media queries at the end of your CSS file */
+@media screen and (max-width: 640px) {
+
+    /* Logo container styles */
+    .sidebar .logo-details {
+      height: auto;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 15px;
+      margin-top: 0;
+    }
+      
+    /* Logo image styles */
+    .sidebar .logo-details img {
+      height: 80px;
+      width: auto;
+      display: block;
+      margin: 0 auto;
+    }
+      
+    .sidebar.close .logo-details img {
+      height: 80px;
+      width: auto;
+      margin: 0 auto;
+      overflow: visible;
+    }
+      
+    .logo-name {
+      font-size: 20px;
+      margin-top: 10px;
+      margin-left: 0;
+      text-align: center;
+      display: block;
+    }
+      
+    .sidebar.close .logo-name {
+      display: block;
+      font-size: 20px;
+      margin-top: 10px;
+    }
+    .sidebar {
+      position: fixed;
+      top: 80px; 
+      left: -100%;
+      height: calc(100% - 80px);
+      width: 100%;
+      transition: all 0.5s ease;
+      z-index: 99;
+    }
+
+    .sidebar.close {
+      left: -100%;
+      width: 100%;
+    }
+
+    .sidebar.close .nav-links li a .link_name {
+      opacity: 1;
+      pointer-events: auto;
+      display: block;
+    }
+
+    .sidebar .profile-details {
+      position: relative;
+      width: 100%;
+      bottom: 0;
+      padding: 15px 20px;
+    }
+      
+    .sidebar.close .profile-details {
+      width: 100%;
+    }
+
+    .sidebar.close .profile-details i,
+    .sidebar.close .profile-details .profile_name,
+    .sidebar.close .profile-details .job {
+        display: block;
+    }
+      
+    .sidebar.close .profile-content,
+    .sidebar.close .name-job {
+      display: flex;
+      opacity: 1;
+    }
+
+
+    .sidebar.show {
+        left: 0;
+    }
+
+    .sidebar .nav-links {
+      padding: 20px 0;
+      margin-top: 0;
+      height: calc(100% - 60px); /* Adjust for profile section */
+      overflow-y: auto;
+    }
+
+    .sidebar .profile-details {
+      position: relative;
+      width: 100%;
+      bottom: 0;
+    }
+
+    .home-section {
+      left: 0;
+      width: 100%;
+      margin-top: 80px; 
+    }
+
+    .sidebar.close ~ .home-section {
+      left: 0;
+      width: 100%;
+    }
+
+    /* Adjust navbar for mobile */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 100;
+      height: 80px;
+    }
+
+    .navbar-left .text {
+      font-size: 20px;
+    }
+
+
+  /* Show user info*/
+  .user-info {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .user-name {
+    font-size: 12px;
+    max-width: 120px; 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .user-id {
+    font-size: 11px;
+  }
+
+    .sidebar .logo-details {
+      height: auto;
+      padding: 15px;
+      margin-top: 0;
+    }
+
+    .sidebar .logo-details img {
+      height: 60px;
+    }
+
+    .logo-name {
+      font-size: 20px;
+      margin-top: 5px;
+    }
+
+    .sidebar .nav-links li {
+      margin-top: 10px;
+    }
+
+    .sidebar .nav-links li a .link_name {
+      font-size: 18px;
+    }
+
+    .sidebar .nav-links li i {
+      min-width: 50px;
+      font-size: 24px;
+    }
+
+    .sidebar .nav-links li .sub-menu {
+      position: static;
+      padding: 6px 6px 14px 70px;
+      background: transparent;
+    }
+
+    .sidebar.close .nav-links li .sub-menu {
+      display: none;
+      position: static;
+      opacity: 1;
+    }
+
+    .upload-grid {
+      grid-template-columns: 1fr;
+      padding: 10px;
+    }
+
+      .left-side-container,
+      .ojt-requirements-section {
+        width: 100%;
+      }
+    }
+
+    /* Add JavaScript toggle class support */
+    .sidebar-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 98;
+    }
+
+    .sidebar-overlay.show {
+      display: block;
+    }

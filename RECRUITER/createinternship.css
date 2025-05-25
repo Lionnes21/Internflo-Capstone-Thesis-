@@ -1,0 +1,836 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+body {
+  margin: 0;
+  padding: 0;
+}
+.wrapper {
+  font-family: "Open Sans", sans-serif;
+  margin: 0 auto 50px auto;
+  width: 60%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.header-title {
+  font-size: 36px;
+  color: #171717;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Focus styles for non-error inputs */
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: blue;
+  box-shadow: 0 0 0 0.3rem rgba(0, 123, 255, 0.25);
+}
+
+/* Keep red border for inputs and selects with 'input-error' class even on focus */
+input.input-error:focus,
+select.input-error:focus,
+textarea.input-error:focus {
+  border-color: red;
+  box-shadow: 0 0 0 0.3rem rgba(255, 0, 0, 0.25);
+}
+
+/* Green border for valid inputs and selects */
+input.valid,
+select.valid,
+textarea.valid {
+  border-color: green;
+  box-shadow: none;
+}
+
+/* Red border and text for invalid inputs and selects */
+input.input-error,
+select.input-error,
+textarea.input-error,
+.editor-container.input-error {
+  border-color: red;
+  box-shadow: 0 0 0 0.3rem rgba(255, 0, 0, 0.25);
+}
+
+.editor-container:focus-within {
+  outline: none;
+  border-color: blue;
+  box-shadow: 0 0 0 0.3rem rgba(0, 123, 255, 0.25);
+}
+
+.editor-container.input-error {
+  border-color: red;
+}
+
+.editor-container.input-error:focus-within {
+  border-color: red;
+  box-shadow: 0 0 0 0.3rem rgba(255, 0, 0, 0.25);
+}
+
+.editor-container.valid {
+  border-color: green;
+  box-shadow: none;
+}
+/* Error Message Styling */
+.error-message {
+  color: red;
+  font-size: 15px;
+  margin: 8px 0 0 0;
+  display: block;
+}
+
+.subheader-title {
+  font-size: 16px;
+  color: #2e3849;
+}
+.form-label {
+  display: block;
+  color: #666;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+.form-group {
+  margin-bottom: 30px;
+}
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+input,
+select {
+  width: 100%;
+  padding: 16px;
+  border: 2px solid #5a6478;
+  font-size: 16px;
+  border-radius: 4px;
+  transition: all 0.2s ease; /* Updated transition */
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+input::placeholder {
+  color: #4a5a73;
+}
+
+/* Update your existing textarea styles */
+
+.editor-container {
+  border: 2px solid #5a6478;
+  border-radius: 4px;
+  width: 100%;
+  background: white;
+  transition: all 0.2s ease; /* Updated transition */
+}
+
+.toolbar {
+  padding: 8px;
+  border-bottom: 2px solid #5a6478;
+  display: flex;
+  gap: 8px;
+  background: #f8f9fa;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.toolbar button {
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #5e6278;
+}
+
+.toolbar button:hover {
+  background-color: #e9ecef;
+}
+
+.toolbar button.active {
+  background-color: #e9ecef;
+  color: #000;
+}
+
+.editor {
+  padding: 12px;
+  min-height: 150px;
+  outline: none;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.editor p {
+  margin: 0;
+}
+
+.editor ul {
+  margin: 0;
+}
+
+.radio-error {
+  color: red;
+  font-size: 15px;
+  margin: 8px 0 0 0;
+  display: block;
+}
+
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23007CB2' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 28px;
+}
+
+
+.editor[data-placeholder]:empty::before {
+  content: attr(data-placeholder);
+  color: #4a5a73 !important; /* Change this to your desired placeholder color */
+  pointer-events: none;
+  display: block;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+/* Common button styles */
+.button-group .next-button,
+.button-group .prev-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  padding: 15px;
+  font-size: 16px;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: color 0.3s ease;
+  min-width: 120px;
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+  overflow: hidden;
+  z-index: 1;
+  gap: 8px;
+}
+
+/* Common before pseudo-element styles */
+.button-group .next-button::before,
+.button-group .prev-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotateX(0deg);
+  transform-origin: top;
+  transition: transform 0.5s ease;
+  z-index: -1;
+}
+
+/* Hover effect for both buttons */
+.button-group .next-button:hover::before,
+.button-group .prev-button:hover::before {
+  transform: rotateX(90deg);
+}
+
+/* Previous button specific styles */
+.button-group .prev-button {
+  background-color: #6c757d;
+}
+
+.button-group .prev-button::before {
+  background-color: #5a6268;
+}
+
+.button-group .prev-button:active {
+  background-color: #495057;
+}
+
+/* Next button specific styles */
+.button-group .next-button {
+  background-color: #4aa629;
+}
+
+.button-group .next-button::before {
+  background-color: #449e25;
+}
+
+.button-group .next-button:active {
+  background-color: #3d8b40;
+}
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+
+#internship-requirements,
+#student-requirements {
+  display: none;
+}
+.timeline {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.timeline-item {
+  flex: 1;
+  text-align: center;
+  padding: 5px;
+  font-size: 12px;
+  border-radius: 4px;
+}
+.submit-button {
+  flex: 1;  /* Add this line */
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  font-size: 16px;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: color 0.3s ease;
+  min-width: 120px;
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+  overflow: hidden;
+  z-index: 1;
+  gap: 8px;
+  background-color: #4aa629;
+}
+
+.submit-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #449e25;
+  transform: rotateX(0deg);
+  transform-origin: top;
+  transition: transform 0.5s ease;
+  z-index: -1;
+}
+
+.submit-button:hover::before {
+  transform: rotateX(90deg);
+}
+
+.submit-button:active {
+  background-color: #3d8b40;
+}
+/* stepper */
+.progress-bar {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 0px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  position: relative;
+  padding: 0 20px;
+}
+
+.step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 14px;
+  left: calc(50% + 25px);
+  width: calc(100% - 50px);
+  height: 4px;
+  background-image: linear-gradient(to right, #ddd 50%, transparent 50%);
+  background-size: 16px 2px;
+  background-repeat: repeat-x;
+  z-index: 1;
+}
+
+.step-circle {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.step-circle svg {
+  width: 30px;
+  height: 30px;
+  fill: #ddd;
+}
+
+.step.active .step-circle svg {
+  fill: #4caf50;
+}
+
+.step.active .step-circle svg path {
+  fill: #4caf50;
+}
+
+.step-label {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #666;
+  white-space: nowrap;
+}
+
+.step.active .step-label {
+  color: #4caf50;
+  font-weight: bold;
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.radio-option {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.radio-option input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+}
+
+.radio-option label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 8px 0;
+  font-size: 16px;
+  color: #2e3849;
+  width: 100%;
+}
+
+.radio-option label::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  border: 2px solid #666666;
+  border-radius: 50%;
+  margin-right: 12px;
+  transition: all 0.2s ease;
+}
+
+.radio-option input[type="radio"]:checked + label::before {
+  border-color: #4caf50;
+  background-color: #4caf50;
+  box-shadow: inset 0 0 0 4px white;
+}
+
+.radio-option:hover label::before {
+  border-color: #4caf50;
+}
+
+/* MAP */
+
+.alert {
+  background-color: #e6f9e6;
+  border-radius: 4px;
+  width: 60%; /* Match container width */
+  box-sizing: border-box; /* Include padding in width calculation */
+  margin: 30px auto; /* Changed from auto to 0 for left/right margins */
+}
+
+.alert__wrapper {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 24px; /* Reduced padding to better match input/button */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.alert__icon {
+  display: flex;
+  align-items: center;
+}
+
+.alert__icon svg {
+  vertical-align: middle; /* Align SVG with text */
+}
+
+.alert__message {
+  color: #2d6a2d; /* Dark red text */
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 18px;
+  margin: 0;
+  font-weight: 600;
+}
+
+.bgwidth {
+  background-color: #f3f5f7;
+  text-align: center;
+  padding: 60px 0;
+  border: none;
+  border-radius: 8px;
+}
+
+.step-h2 {
+  font-size: 26px;
+  color: #2e3849;
+  font-weight: 500;
+  text-align: center;
+}
+
+
+
+.highlight {
+  color: #ff8c00;
+}
+
+.date-banner {
+  display: flex;
+  align-items: center;
+  margin: 15px auto;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+
+.date-banner-text {
+  color: #666666;
+  font-family: "Open Sans", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  margin: 0;
+  word-break: break-word;
+  flex-grow: 1;
+}
+
+.date-banner-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.date-banner-content svg {
+  flex-shrink: 0;
+}
+
+.note-banner {
+  display: flex;
+  align-items: center;
+  margin: 15px auto;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+
+.note-banner-text {
+  color: #666666;
+  font-family: "Open Sans", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  margin: 0;
+  word-break: break-word;
+  flex-grow: 1;
+}
+
+.note-banner-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.note-banner-content svg {
+  flex-shrink: 0;
+}
+
+/* Tablet Responsiveness */
+@media (max-width: 1100px) {
+  .wrapper {
+    width: 80%;
+  }
+  
+  .container {
+    width: 90%;
+  }
+  
+  .header-title {
+    font-size: 30px;
+  }
+  
+  .subheader-title {
+    font-size: 15px;
+  }
+  
+  input, 
+  select,
+  .editor-container {
+    font-size: 15px;
+  }
+  
+  .form-label {
+    font-size: 15px;
+    margin-bottom: 12px;
+  }
+  
+  .form-group {
+    margin-bottom: 24px;
+  }
+  
+  .form-row {
+    margin-bottom: 24px;
+  }
+  
+  .button-group .next-button,
+  .button-group .prev-button,
+  .submit-button {
+    padding: 12px;
+    font-size: 15px;
+    min-width: 100px;
+  }
+  
+  .editor {
+    min-height: 130px;
+    font-size: 15px;
+  }
+  
+  .toolbar button {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .progress-bar {
+    padding: 30px 0;
+  }
+  
+  .step-circle {
+    width: 26px;
+    height: 26px;
+  }
+  
+  .step-circle svg {
+    width: 26px;
+    height: 26px;
+  }
+  
+  .step-label {
+    font-size: 13px;
+  }
+  
+  .radio-option label {
+    font-size: 15px;
+    padding: 6px 0;
+  }
+  
+  .radio-option label::before {
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+  }
+  
+  .step-h2 {
+    font-size: 24px;
+  }
+  
+  .alert {
+    width: 80%;
+  }
+  
+  .alert__wrapper {
+    padding: 20px;
+  }
+  
+  .alert__message {
+    font-size: 16px;
+  }
+
+  
+  .bgwidth {
+    padding: 50px 0;
+  }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 560px) {
+  .wrapper {
+    width: 95%;
+    margin-bottom: 30px;
+  }
+  
+  .container {
+    width: 100%;
+  }
+  
+  .header-title {
+    font-size: 24px;
+  }
+  
+  .subheader-title {
+    font-size: 14px;
+  }
+  
+  input, 
+  select,
+  .editor-container {
+    font-size: 14px;
+  }
+  
+  .form-label {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-row {
+    margin-bottom: 20px;
+  }
+  
+  .button-group {
+    gap: 10px;
+  }
+  
+  .button-group .next-button,
+  .button-group .prev-button,
+  .submit-button {
+    padding: 10px;
+    font-size: 14px;
+    min-width: 90px;
+  }
+  
+  .editor {
+    min-height: 120px;
+    font-size: 14px;
+    padding: 10px;
+  }
+  
+  .toolbar {
+    padding: 6px;
+    gap: 6px;
+  }
+  
+  .toolbar button {
+    width: 26px;
+    height: 26px;
+  }
+  
+  .progress-bar {
+    padding: 20px 0;
+    overflow-x: auto;
+  }
+  
+  .step {
+    padding: 0 10px;
+  }
+  
+  .step:not(:last-child)::after {
+    top: 12px;
+    left: calc(50% + 20px);
+    width: calc(100% - 40px);
+  }
+  
+  .step-circle {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .step-circle svg {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .step-label {
+    font-size: 12px;
+    text-align: center;
+  }
+  
+  .radio-option label {
+    font-size: 14px;
+    padding: 5px 0;
+  }
+  
+  .radio-option label::before {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+  }
+  
+  .radio-option input[type="radio"]:checked + label::before {
+    box-shadow: inset 0 0 0 3px white;
+  }
+  
+  .step-h2 {
+    font-size: 20px;
+  }
+  
+  .alert {
+    width: 95%;
+    margin: 20px auto;
+  }
+  
+  .alert__wrapper {
+    padding: 16px;
+    gap: 10px;
+  }
+  
+  .alert__message {
+    font-size: 14px;
+  }
+  
+  
+  .bgwidth {
+    padding: 40px 0;
+  }
+  
+  .note-banner-text,
+  .date-banner-text {
+    font-size: 13px;
+  }
+  
+  .note-banner-content,
+  .date-banner-content {
+    gap: 8px;
+  }
+  
+  select {
+    background-position: right 8px center;
+    padding-right: 24px;
+  }
+}

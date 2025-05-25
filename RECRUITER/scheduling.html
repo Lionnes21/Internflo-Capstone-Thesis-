@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interview Schedule</title>
+<link rel="stylesheet" href="scheduling.css">
+</head>
+<body>
+    <input type="date" id="datepicker" placeholder="MM-DD-YY" name="Date" class="date-input" />
+    <button id="interviewModal">Open Modal</button>
+        <div id="schedule" class="interview">
+            <div class="container">
+                <div class="left-content">
+                    <div class="details">
+                        <h2>Schedule Interview</h2>
+                        <p>Schedule for Applicants</p>
+                        <div class="box-day">
+                            <div class="interview-date" id="selected-date-day">20</div>
+                            <div class="interview-day" id="selected-day">Thursday</div>
+                        </div>
+                        <div class="interview-details">
+                            <div class="interview-time">
+                                <input type="time" id="time-input" />
+                                <div class="custom-icon">
+                                  <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#666666">
+                                    <path d="M200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-40q0-17 11.5-28.5T280-880q17 0 28.5 11.5T320-840v40h320v-40q0-17 11.5-28.5T680-880q17 0 28.5 11.5T720-840v40h40q33 0 56.5 23.5T840-720v187q0 17-11.5 28.5T800-493q-17 0-28.5-11.5T760-533v-27H200v400h232q17 0 28.5 11.5T472-120q0 17-11.5 28.5T432-80H200Zm520 40q-83 0-141.5-58.5T520-240q0-83 58.5-141.5T720-440q83 0 141.5 58.5T920-240q0 83-58.5 141.5T720-40Zm20-208v-92q0-8-6-14t-14-6q-8 0-14 6t-6 14v91q0 8 3 15.5t9 13.5l61 61q6 6 14 6t14-6q6-6 6-14t-6-14l-61-61Z" />
+                                  </svg>
+                                </div>
+                              </div>                        
+                            <div class="interview-date-full" id="selected-date-full">Thursday, July 20, 2025</div>
+                            <button class="set-interview-btn">Schedule <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#FFFFFF"><path d="M202.87-71.87q-37.78 0-64.39-26.61t-26.61-64.39v-554.26q0-37.78 26.61-64.39t64.39-26.61H240v-37.37q0-17.96 12.46-30.29 12.45-12.34 30.41-12.34t30.29 12.34q12.34 12.33 12.34 30.29v37.37h309v-37.37q0-17.96 12.46-30.29 12.45-12.34 30.41-12.34t30.29 12.34Q720-863.46 720-845.5v37.37h37.13q37.78 0 64.39 26.61t26.61 64.39V-559q0 19.15-13.17 32.33-13.18 13.17-32.33 13.17t-32.33-13.17q-13.17-13.18-13.17-32.33v-1H202.87v397.13h230.2q19.15 0 32.32 13.17 13.18 13.18 13.18 32.33t-13.18 32.33q-13.17 13.17-32.32 13.17h-230.2Zm355.7-45.5v-65.04q0-9.2 3.47-17.54 3.48-8.33 10.2-15.05L781-423q9.72-9.72 21.55-14.08 11.84-4.35 23.8-4.35 12.95 0 24.79 4.85 11.84 4.86 21.56 14.58l37 37q8.71 9.72 13.57 21.55 4.86 11.84 4.86 23.8 0 12.19-4.36 24.41T909.7-293.3l-208 208q-6.72 6.71-15.06 10.07-8.34 3.36-17.53 3.36h-65.04q-19.16 0-32.33-13.17-13.17-13.18-13.17-32.33Zm270.17-185.67 34.61-36.61-37-37-35.61 35.61 38 38Z"/></svg></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="calendar-container">
+                    <table class="calendar">
+                        <thead>
+                            <tr>
+                                <th class="calendar-header" colspan="7">
+                                        <select id="month-select" class="calendar-select1"></select>
+                                        <select id="year-select" class="calendar-select"></select>
+
+                                </th>
+                            </tr>
+                            <tr class="calendar-days">
+                                <th class="day">Sun</th>
+                                <th class="day">Mon</th>
+                                <th class="day">Tue</th>
+                                <th class="day">Wed</th>
+                                <th class="day">Thu</th>
+                                <th class="day">Fri</th>
+                                <th class="day">Sat</th>
+                            </tr>                            
+                        </thead>
+                        <tbody id="calendar-body"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+<script>
+    // Get the modal and open button
+    const modal = document.getElementById("schedule");
+    const openModalBtn = document.getElementById("interviewModal");
+
+    // Show the modal when the button is clicked
+    openModalBtn.addEventListener("click", () => {
+    modal.style.display = "flex";
+    });
+
+    // Hide the modal when clicking outside the modal content
+    window.addEventListener("click", (event) => {
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
+    });
+
+        const datePicker = document.getElementById('datepicker');
+    const selectedDateDay = document.getElementById('selected-date-day');
+    const selectedDay = document.getElementById('selected-day');
+    const selectedDateFull = document.getElementById('selected-date-full');
+
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+    // Create header container for navigation
+    const headerNavigation = document.createElement('div');
+    headerNavigation.classList.add('calendar-header-navigation');
+
+    // Create previous button with SVG
+    const prevButton = document.createElement('button');
+    prevButton.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#2E3849">
+            <path d="m313-480 155 156q11 11 11.5 27.5T468-268q-11 11-28 11t-28-11L228-452q-6-6-8.5-13t-2.5-15q0-8 2.5-15t8.5-13l184-184q11-11 27.5-11.5T468-692q11 11 11 28t-11 28L313-480Zm264 0 155 156q11 11 11.5 27.5T732-268q-11 11-28 11t-28-11L492-452q-6-6-8.5-13t-2.5-15q0-8 2.5-15t8.5-13l184-184q11-11 27.5-11.5T732-692q11 11 11 28t-11 28L577-480Z"/>
+        </svg>
+    `;
+    prevButton.classList.add('prev-month');
+
+    // Create next button with SVG
+    const nextButton = document.createElement('button');
+    nextButton.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#2E3849">
+            <path d="M383-480 228-636q-11-11-11.5-27.5T228-692q11-11 28-11t28 11l184 184q6 6 8.5 13t2.5 15q0 8-2.5 15t-8.5 13L284-268q-11 11-27.5 11.5T228-268q-11-11-11-28t11-28l155-156Zm264 0L492-636q-11-11-11.5-27.5T492-692q11-11 28-11t28 11l184 184q6 6 8.5 13t2.5 15q0 8-2.5 15t-8.5 13L548-268q-11 11-27.5 11.5T492-268q-11-11-11-28t11-28l155-156Z"/>
+        </svg>
+    `;
+    nextButton.classList.add('next-month');
+
+    const monthYearDisplay = document.createElement('span');
+    monthYearDisplay.classList.add('month-year-display');
+
+    // Assemble navigation elements
+    headerNavigation.appendChild(prevButton);
+    headerNavigation.appendChild(monthYearDisplay);
+    headerNavigation.appendChild(nextButton);
+
+    // Replace dropdowns with new navigation elements
+    const headerRow = document.querySelector('.calendar thead tr:first-child th');
+    headerRow.innerHTML = '';
+    headerRow.appendChild(headerNavigation);
+
+    let currentYear = new Date().getFullYear();
+    let currentMonth = new Date().getMonth();
+
+    function updateMonthYearDisplay() {
+        monthYearDisplay.textContent = `${months[currentMonth]} ${currentYear}`;
+    }
+
+    function updateDateDetails(year, month, day) {
+        const selectedDate = new Date(year, month, day);
+        
+        // Update day
+        selectedDateDay.textContent = day;
+        
+        // Update day of week
+        selectedDay.textContent = days[selectedDate.getDay()];
+        
+        // Update full date
+        selectedDateFull.textContent = `${days[selectedDate.getDay()]}, ${months[month]} ${day}, ${year}`;
+    }
+
+    function createCalendar(year, month) {
+        const calendarBody = document.getElementById('calendar-body');
+        calendarBody.innerHTML = '';
+
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
+        const firstDay = new Date(year, month, 1).getDay();
+
+        updateMonthYearDisplay();
+
+        let date = 1;
+        for (let i = 0; i < 6; i++) {
+            const row = document.createElement('tr');
+            for (let j = 0; j < 7; j++) {
+                if (i === 0 && j < firstDay) {
+                    const cell = document.createElement('td');
+                    row.appendChild(cell);
+                } else if (date > daysInMonth) {
+                    break;
+                } else {
+                    const cell = document.createElement('td');
+                    cell.textContent = date;
+                    cell.addEventListener('click', () => {
+                        const selectedCells = document.querySelectorAll('.selected');
+                        selectedCells.forEach(selected => selected.classList.remove('selected'));
+                        cell.classList.add('selected');
+
+                        // Automatically input the selected date into the date input field
+                        const selectedDate = new Date(year, month, parseInt(cell.textContent));
+                        const dateString = 
+                            selectedDate.getFullYear() + '-' + 
+                            ('0' + (selectedDate.getMonth() + 1)).slice(-2) + '-' + 
+                            ('0' + selectedDate.getDate()).slice(-2);
+
+                        datePicker.value = dateString;
+
+                        // Update additional date details
+                        updateDateDetails(year, month, parseInt(cell.textContent));
+                    });
+                    row.appendChild(cell);
+                    date++;
+                }
+            }
+            calendarBody.appendChild(row);
+            if (date > daysInMonth) break;
+        }
+    }
+
+    // Previous month button
+    prevButton.addEventListener('click', () => {
+        currentMonth--;
+        if (currentMonth < 0) {
+            currentMonth = 11;
+            currentYear--;
+        }
+        createCalendar(currentYear, currentMonth);
+    });
+
+    // Next month button
+    nextButton.addEventListener('click', () => {
+        currentMonth++;
+        if (currentMonth > 11) {
+            currentMonth = 0;
+            currentYear++;
+        }
+        createCalendar(currentYear, currentMonth);
+    });
+
+    // Date input change listener
+    datePicker.addEventListener('change', () => {
+        const inputDate = new Date(datePicker.value);
+        currentYear = inputDate.getFullYear();
+        currentMonth = inputDate.getMonth();
+        
+        createCalendar(currentYear, currentMonth);
+        
+        // Find and select the correct date cell
+        const calendarBody = document.getElementById('calendar-body');
+        const cells = calendarBody.getElementsByTagName('td');
+        for (let cell of cells) {
+            if (cell.textContent && 
+                parseInt(cell.textContent) === inputDate.getDate()) {
+                const selectedCells = document.querySelectorAll('.selected');
+                selectedCells.forEach(selected => selected.classList.remove('selected'));
+                cell.classList.add('selected');
+                
+                // Update additional date details
+                updateDateDetails(currentYear, currentMonth, inputDate.getDate());
+                break;
+            }
+        }
+    });
+
+    // Initialize calendar with current date details
+    createCalendar(currentYear, currentMonth);
+    updateDateDetails(currentYear, currentMonth, new Date().getDate());
+</script>
+</body>
+</html>

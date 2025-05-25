@@ -1,0 +1,320 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+body {
+    font-family: "Open Sans", sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px 0;
+}
+.form-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+}
+h2 {
+    color: #4CAF50;
+    text-align: center;
+    margin-bottom: 5px;
+}
+p {
+    color: #434649;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+.progress-bar {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto 60px;
+    position: relative;
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+    max-width: 360px;
+}
+.progress-bar::before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 40px;
+    right: 40px;
+    height: 2px;
+    background: #e0e0e0;
+    z-index: 1;
+}
+/* For the step numbers */
+.step {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: normal; /* Change to normal for inactive steps */
+    color: #fff;
+    position: relative;
+    z-index: 2;
+}
+
+/* For the active step */
+.step.active {
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold; /* Add bold for the active step */
+}
+
+/* For the step labels */
+.step-label {
+    position: absolute;
+    top: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    color: #666; /* Default color */
+    white-space: nowrap;
+    font-weight: normal; /* Make non-active labels not bold */
+}
+
+.step.active .step-label {
+    color: #4CAF50; /* Green color for the active step label */
+    font-weight: bold; /* Make active label bold */
+}
+
+
+
+.form-step {
+    display: none;
+}
+.form-step.active {
+    display: block;
+}
+.education-level {
+    margin-bottom: 30px;
+}
+.level-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #434649;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+.education-form-group {
+    border-radius: 4px;
+}
+.education-form-group input {
+    font-family: "Open Sans", sans-serif;
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+.date-range {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.date-range input {
+    width: calc(50% - 5px);
+}
+textarea {
+    font-size: 14px;
+    font-family: "Open Sans", sans-serif;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    height: 50px;
+    resize: vertical;
+}
+.button-group {
+    display: flex;
+    gap: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    flex: 1;
+    margin: 0 5px;
+}
+button:hover {
+    background-color: #45a049;
+}
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+.button-group.first-step #prevBtn {
+    display: none;
+}
+.add-more-btn {
+    font-family: "Open Sans", sans-serif;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 5px;
+    width: auto;
+}
+.add-more-btn:hover {
+    background: #45a049;
+}
+
+.remove-btn{
+    font-family: "Open Sans", sans-serif;
+    background: #f44336;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 5px;
+    width: auto;
+}
+
+.remove-btn:hover {
+    background: #d32f2f; 
+}
+
+form {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+span .txt {
+    font-size: 14px;
+    color: #434649;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+
+.additional-text {
+    font-family: "Open Sans", sans-serif;
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+
+/* Chrome, Safari, Edge, and Opera */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+
+
+
+
+
+
+.upload-container {
+    display: flex;
+    flex-direction: column; /* Align label above the picture */
+    align-items: flex-start; /* Align content to the left */
+    margin-bottom: 20px; /* Adds space below the upload section */
+}
+
+.upload-label {
+    margin: 15px 0px;
+    font-size: 14px;
+    color: #434649;
+}
+
+.picture {
+    width: 100px;
+    height: 100px;
+    border: 2px dashed #ddd;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.picture svg {
+    margin-bottom: 8px; /* Add some space between the icon and text */
+}
+
+.picture span {
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+}
+
+.photo-box {
+    display: inline-block;
+    position: relative;
+}
+
+.preview-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.remove-photo {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+
+#resume-photo-upload-container {
+    display: flex;
+    flex-direction: column; /* Align label above the picture */
+    align-items: flex-start; /* Align content to the left */
+    margin-bottom: 20px; /* Adds space below the upload section */
+}
+
+#esign-photo-upload-container{
+    display: flex;
+    flex-direction: column; /* Align label above the picture */
+    align-items: flex-start; /* Align content to the left */
+    margin-bottom: 20px; /* Adds space below the upload section */
+}

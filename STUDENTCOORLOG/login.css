@@ -1,0 +1,513 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: "Open Sans", sans-serif;
+  scroll-behavior: smooth;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  background-color: white;
+  overflow: hidden;
+}
+
+/* Image container - exactly 50% width */
+.image-container {
+  flex: 0 0 50%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f8f8;
+  overflow: hidden;
+  height: 650px;
+}
+
+.image-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(26, 42, 26, 0.3);
+  z-index: 1;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+  z-index: 0;
+}
+
+/* Form container - exactly 50% width */
+fieldset {
+  flex: 0 0 50%;
+  padding: 0px 80px;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  margin: 0;
+  max-height: 650px;
+}
+
+.signup-header h1 {
+  font-size: 36px;
+  color: #171717;
+  font-weight: 600;
+  margin: 0;
+}
+
+.signup-header p {
+  font-size: 16px;
+  color: #2e3849;
+}
+
+/* Styling for form rows and input fields */
+.row {
+  margin: 0 0 15px 0;
+}
+
+.input-group {
+  width: 100%;
+}
+
+/* Input field styling */
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 16px;
+  border: 2px solid #5a6478;
+  font-size: 16px;
+  border-radius: 4px;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+  transition: all 0.2s ease; /* Updated transition */
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  outline: none;
+}
+
+/* Placeholder styling */
+input[type="text"]::placeholder {
+  color: #4a5a73;
+}
+input[type="password"]::placeholder {
+  color: #4a5a73;
+}
+.password-container {
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #aaa;
+  font-size: 18px;
+}
+
+.toggle-password.fa-eye {
+  color: #4caf49;
+}
+
+.toggle-email {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #aaa;
+  font-size: 18px;
+}
+
+/* Remember Me and Forgot Password link */
+.row:has(input[type="checkbox"]) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+}
+
+.row a {
+  color: #4caf50;
+  text-decoration: none;
+}
+
+.row a:hover {
+  text-decoration: underline;
+}
+
+/* Button styling */
+.btnSend {
+  margin: 20px 0 0 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  padding: 15px;
+  width: 100%;
+  font-size: 16px;
+  background-color: #4aa629;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  overflow: hidden;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  z-index: 1;
+}
+
+.btnSend::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #449e25;
+  transform: rotateX(0deg);
+  transform-origin: top;
+  transition: transform 0.5s ease;
+  z-index: -1;
+}
+
+.btnSend:hover::before {
+  transform: rotateX(90deg);
+}
+
+.btnSend:hover {
+  color: white;
+}
+
+/* Checkbox styling */
+/* Hide the default checkbox */
+/* Hide the default checkbox */
+.custom-checkbox input[type="checkbox"] {
+  display: none;
+}
+
+/* Style the custom checkbox container */
+.custom-checkbox {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+}
+
+/* Base style for the custom checkbox */
+/* Base style for the custom checkbox */
+.custom-checkbox .checkmark {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #8b94a7; /* Default border color */
+  border-radius: 3px; /* Optional: rounded corners */
+  margin: 0 5px 0 0;
+  position: relative;
+  display: inline-block;
+  transition: all 0.2s ease; /* Smooth transition */
+}
+
+.custom-checkbox input[type="checkbox"]:checked + .checkmark {
+  background-color: #5a6478; /* Background color when checked */
+  border-color: #5a6478; /* Border color when checked */
+}
+
+/* Add a checkmark icon when checked */
+.custom-checkbox input[type="checkbox"]:checked + .checkmark::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 6px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* Divider styling */
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 20px 0;
+  color: #666;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #ddd;
+}
+
+.divider:not(:empty)::before {
+  margin: 0 10px 0 0;
+}
+
+.divider:not(:empty)::after {
+  margin: 0 0 0 10px;
+} /* Google login styling */
+.center-container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.additionalcontent p {
+  margin: 20px 0 0 0;
+  color: #2e3849;
+  text-align: center;
+}
+
+.additionalcontent a {
+  color: #0000ee;
+  text-decoration: none;
+  font-weight: 600;
+  text-underline-offset: 4px;
+}
+
+.additionalcontent a:hover {
+  text-decoration: underline;
+}
+
+.gborder {
+  border: 2px solid #8b94a7;
+  border-radius: 4px;
+  padding: 0;
+  background-color: #fff;
+  transition: background-color 0.3s ease;
+  position: relative;
+}
+
+.gborder:hover {
+  background-color: #f8f9fa;
+}
+
+.google-login a {
+  text-decoration: none;
+  color: #3c4043;
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.google-login img {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  left: 20px;
+}
+
+.google-login span {
+  flex: 1;
+  text-align: center;
+  font-size: 18px;
+  letter-spacing: 0.25px;
+  padding: 0 24px; /* Add padding to account for the icon space */
+  color: #2e3849;
+  font-family: "Open Sans", sans-serif;
+}
+/* Password field styling */
+
+.highlight {
+  color: #ff8c00;
+}
+
+@media (max-width: 1100px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .image-container {
+    flex: 0 0 100%;
+    width: 100%;
+    min-height: 300px;
+    height: 300px;
+  }
+
+  fieldset {
+    flex: 0 0 100%;
+    width: 100%;
+    padding: 30px 20px;
+    max-height: none;
+  }
+
+  .signup-header h1 {
+    font-size: 24px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .signup-header p {
+    font-size: 14px;
+  }
+
+  input[type="text"],
+  input[type="password"],
+  input[type="email"] {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .toggle-password,
+  .toggle-email {
+    font-size: 16px;
+  }
+
+  .row:has(input[type="checkbox"]) {
+    font-size: 14px;
+  }
+
+  .row a {
+    font-size: 14px;
+  }
+
+  .custom-checkbox .checkmark {
+    width: 16px;
+    height: 16px;
+  }
+
+  .btnSend {
+    padding: 12px;
+    font-size: 14px;
+    margin: 15px 0 0 0;
+  }
+
+  .additionalcontent p {
+    font-size: 14px;
+  }
+
+  .google-login span {
+    font-size: 16px;
+  }
+
+  .google-login a {
+    padding: 14px;
+  }
+
+  .divider {
+    margin: 15px 0;
+    font-size: 14px;
+  }
+
+  .form-error,
+  .error-message {
+    font-size: 14px;
+  }
+}
+
+/* Media Query for Mobile (560px) */
+@media (max-width: 560px) {
+  .image-container {
+    min-height: 200px;
+    height: 200px;
+  }
+
+  fieldset {
+    padding: 20px 15px;
+  }
+
+  .signup-header h1 {
+    font-size: 22px;
+  }
+
+  .signup-header p {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  input[type="text"],
+  input[type="password"],
+  input[type="email"] {
+    padding: 12px;
+    font-size: 13px;
+  }
+
+  .toggle-password,
+  .toggle-email {
+    right: 12px;
+    font-size: 16px;
+  }
+
+  .row {
+    margin-bottom: 12px;
+  }
+
+  .row:has(input[type="checkbox"]) {
+    font-size: 13px;
+    gap: 8px;
+  }
+
+  .row a {
+    font-size: 13px;
+  }
+
+  .custom-checkbox .checkmark {
+    width: 14px;
+    height: 14px;
+  }
+
+  .custom-checkbox input[type="checkbox"]:checked + .checkmark::before {
+    top: 1px;
+    left: 5px;
+    width: 4px;
+    height: 8px;
+  }
+
+  .btnSend {
+    padding: 12px;
+    font-size: 13px;
+    margin: 15px 0 0 0;
+  }
+
+  .additionalcontent p {
+    font-size: 13px;
+    line-height: 1.4;
+    margin: 12px 0 0 0;
+  }
+
+  .google-login span {
+    font-size: 14px;
+  }
+
+  .google-login a {
+    padding: 12px;
+  }
+
+  .google-login img {
+    width: 20px;
+    height: 20px;
+    left: 15px;
+  }
+
+  .divider {
+    margin: 12px 0;
+    font-size: 13px;
+  }
+
+  .form-error,
+  .error-message {
+    font-size: 13px;
+    margin: 6px 0 0 0;
+  }
+}

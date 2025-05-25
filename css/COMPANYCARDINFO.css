@@ -1,0 +1,990 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", sans-serif;
+}
+.width {
+  width: 65%;
+  margin: 30px auto 100px auto;
+}
+
+.company-header-section {
+  background-color: #f3f5f7;
+  padding: 40px 0; /* Add padding as needed */
+  border-radius: 8px; /* Optional: if you want rounded corners */
+}
+
+.company-card {
+  background: white;
+  border-radius: 8px;
+  font-family: "Open Sans", sans-serif;
+}
+
+.company-card .header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.company-title h1 {
+  margin: 0;
+  font-size: 24px;
+  color: #2e3849;
+}
+
+.company-card .logo {
+  width: 150px;
+  height: 150px;
+  margin-bottom: 16px;
+}
+
+.company-card .name {
+  font-size: 30px;
+  color: #171717;
+  text-decoration: none;
+  margin: 0;
+  position: relative;
+  padding-bottom: 5px;
+  display: inline-block; /* Ensures the container width matches the text */
+}
+
+.company-card .name::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%; /* Underline spans the full width of the text */
+  height: 2px;
+  background-color: #2e3849;
+  border-radius: 2px;
+}
+
+.company-card .rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 16px 0;
+}
+
+.company-card .stars {
+  display: flex;
+  align-items: center;
+  gap: 1px;
+}
+
+.company-card .star-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.company-card .rating-text {
+  font-size: 16px;
+  color: #2e3849;
+}
+
+.company-card .review-link {
+  font-size: 16px;
+  color: #2e3849;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.company-card .navigation {
+  display: flex;
+  gap: 24px;
+  margin: 24px 0;
+  border-bottom: 3px solid #e0e0e0;
+  padding-bottom: 14px;
+  font-size: 18px;
+}
+
+.company-card .nav-item {
+  color: #666;
+  text-decoration: none;
+  padding: 8px 0;
+  position: relative;
+}
+
+.company-card .nav-item.active {
+  color: #002b7f;
+  font-weight: 600;
+}
+
+.company-card .nav-item.active::after {
+  content: "";
+  position: absolute;
+  bottom: -16px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #002b7f;
+}
+
+.company-card .review-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px; /* Centers the button */
+}
+
+.company-card .write-review {
+  background: #002b7f;
+  color: white;
+  padding: 12px 15px;
+  border-radius: 4px;
+  text-decoration: none;
+  display: inline-flex; /* Adapts width based on content */
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+.company-card .write-review-disabled {
+  background: #d3d3d3;
+  color: #808080;
+  text-decoration: none;
+  padding: 12px 15px;
+  border-radius: 4px;
+
+  display: inline-flex; /* Adapts width based on content */
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+.company-card .info {
+  margin-top: 32px;
+}
+
+.company-card .info h2 {
+  margin: 0 0 20px 0;
+  color: #171717;
+  font-size: 28px;
+}
+
+.company-card .info-grid {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.company-card .info-label {
+  color: #2e3849;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.company-card .info-value {
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+}
+
+.company-card .info-value a {
+  color: #0000ee;
+  cursor: pointer;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 18px;
+  font-weight: 600;
+  text-underline-offset: 4px; /* Adjust as needed */
+}
+
+.company-card .info-value svg {
+  transition: transform 0.2s ease;
+}
+
+.company-card .info-value a:hover svg {
+  transform: translateY(-2px);
+}
+
+.company-card .info-value a:hover {
+  text-decoration: underline;
+}
+
+.company-card .description {
+  color: #2e3849;
+  line-height: 1.6;
+  margin-top: 24px;
+  font-size: 17px;
+}
+
+/* info-section */
+
+.internships-section {
+  margin-top: 32px;
+}
+.search-section {
+  margin-bottom: 30px;
+}
+
+.search-section h2 {
+  margin: 0 0 20px 0;
+  color: #2e3849;
+  font-size: 20px;
+}
+
+.search-container {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+  align-items: center;
+}
+
+.search-input {
+  flex: 1;
+  padding: 12px 20px;
+  border: 2px solid #5a6478;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: all 0.2s ease; /* Updated transition */
+  color: #2e3849;
+  background-color: #fff;
+  max-width: 332px;
+}
+
+.search-input::placeholder {
+  color: #4a5a73;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: blue;
+  box-shadow: 0 0 0 0.3rem rgba(0, 123, 255, 0.25);
+}
+
+.search-button {
+  padding: 12px 24px;
+  background: #002b7f;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 17px;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.results-count {
+  margin-top: 20px;
+  font-size: 15px;
+  color: #2e3849;
+}
+
+.results-count span {
+  color: #2e3849;
+  font-weight: 600;
+}
+
+.results-count {
+  color: #2e3849;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* Updated jobs container to grid */
+.jobs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  max-width: 100%;
+}
+
+.job-card {
+  border: 2.5px solid #f2f2f2;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.job-card h3 {
+  color: #171717;
+  font-size: 1.3rem;
+  margin: 0 0 15px 0;
+  cursor: pointer;
+  position: relative;
+  padding-bottom: 5px;
+  display: inline-block;
+}
+
+.job-card h3::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #2e3849;
+  border-radius: 2px;
+}
+
+.job-card:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.location {
+  color: #2e3849;
+  font-size: 14px;
+  margin: 0 0 10px 0;
+}
+
+.internship-description {
+  color: #2e3849;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+
+.posted-time {
+  color: #666;
+  font-size: 1rem;
+}
+
+.search-company {
+  position: relative;
+  margin-bottom: 15px;
+  max-width: 332px;
+}
+
+.searchcompany-input {
+  width: 100%;
+  padding: 12px 20px 12px 45px; /* Increased left padding to make room for icon */
+  border: 2px solid #5a6478;
+  border-radius: 10px;
+  font-size: 16px;
+  color: #2e3849;
+  background-color: #fff;
+}
+
+.searchcompany-input::placeholder {
+  color: #4a5a73;
+}
+
+.searchcompany-input:focus {
+  outline: none;
+  border-color: blue;
+  box-shadow: 0 0 0 0.3rem rgba(0, 123, 255, 0.25);
+}
+
+.search-company svg {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.alert {
+  background-color: #fff9e6; /* Light red background */
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 65%;
+  margin: 30px auto;
+}
+
+.alert__wrapper {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 24px;
+}
+
+.alert__icon {
+  display: flex;
+  align-items: center;
+}
+
+.alert__icon svg {
+  vertical-align: middle; /* Align SVG with text */
+}
+
+.alert__message {
+  color: #856404; /* Dark red text */
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 18px;
+  margin: 0;
+  font-weight: 600;
+}
+
+.alert__link {
+  color: #856404; /* Dark red link */
+  text-decoration: underline;
+}
+
+.alert__dismiss {
+  color: #856404; /* Dark red dismiss button */
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 0;
+  margin-left: 16px;
+}
+
+.alert__dismiss:hover {
+  opacity: 0.7;
+}
+
+.alert-sign-in {
+  text-decoration: none; /* Removes the underline */
+  color: #0000ee; /* Sets the link color */
+}
+
+.alert-sign-in:hover {
+  text-decoration: underline; /* Optional: Adds underline on hover */
+}
+
+/* Reviews Section Styles */
+.reviews-section {
+  margin-top: 32px;
+}
+
+.reviews-section h2 {
+  margin: 0 0 20px 0;
+  color: #171717;
+  font-size: 28px;
+}
+
+.reviews-overview {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 32px;
+}
+
+.overall-rating {
+  text-align: center;
+}
+
+.overall-rating h3 {
+  color: #2e3849;
+  margin: 0 0 16px 0;
+  font-size: 20px;
+}
+
+.big-rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.rating-number {
+  font-size: 48px;
+  font-weight: bold;
+  color: #171717;
+}
+
+.total-reviews {
+  color: #666;
+  font-size: 16px;
+}
+
+.reviews-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.review-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 24px;
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.reviewer-info h4 {
+  margin: 0 0 4px 0;
+  color: #171717;
+  font-size: 18px;
+}
+
+.review-date {
+  color: #666;
+  font-size: 14px;
+}
+
+.review-rating {
+  display: flex;
+  gap: 2px;
+}
+
+.review-text {
+  color: #2e3849;
+  line-height: 1.6;
+  margin: 0;
+  font-size: 16px;
+}
+
+.no-reviews {
+  color: #666;
+  text-align: center;
+  padding: 32px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  font-size: 16px;
+  margin: 0;
+}
+
+.add-review-section {
+  margin: 0 0 20px 0;
+}
+
+.review-form {
+  margin: 0 0 20px 0;
+}
+
+.review-form h3 {
+  margin: 0 0 20px 0;
+  color: #171717;
+  font-size: 28px;
+}
+
+.rating-input {
+  margin: 0 0 15px 0;
+}
+
+.rating-input label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.star-rating {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 0.5rem;
+  justify-content: flex-end; /* Add this line */
+  width: fit-content; /* Add this line */
+}
+
+.star-rating input {
+  display: none;
+}
+
+.star-rating label {
+  cursor: pointer;
+}
+
+.star-rating label svg {
+  fill: #ccc;
+  transition: fill 0.2s;
+}
+
+.star-rating input:checked ~ label svg,
+.star-rating label:hover svg,
+.star-rating label:hover ~ label svg {
+  fill: #ff9800;
+}
+
+.review-input {
+  margin: 0 0 10px 0;
+}
+
+.review-input label {
+  display: block;
+  margin: 0 0 10px 0;
+  font-weight: 500;
+}
+
+.review-input textarea {
+  width: 100%;
+  padding: 14px 18px;
+  font-size: 16px;
+  border: 2px solid #5a6478;
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+.review-input textarea::placeholder {
+  color: #4a5a73;
+}
+
+.review-input textarea:focus {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05),
+    0 0 0 0.3rem rgba(0, 123, 255, 0.25);
+  border-color: blue;
+}
+.submit-review {
+  background: #002b7f; /* Match background color */
+  color: white;
+  border: none;
+  padding: 12px 15px; /* Match padding */
+  border-radius: 4px;
+  font-size: 15px; /* Match font size */
+  font-weight: 600; /* Match font weight */
+  cursor: pointer;
+  display: flex; /* Use flexbox */
+  align-items: center; /* Vertically center items */
+  gap: 5px; /* Add space between text and icon */
+  transition: background-color 0.2s;
+}
+
+/* Default hover effect */
+.submit-review:hover {
+  background-color: #001f5b; /* Darker shade for hover */
+}
+
+/* Default SVG alignment */
+.submit-review svg {
+  vertical-align: middle;
+  fill: white;
+}
+
+.login-prompt {
+  text-align: center;
+  padding: 1rem;
+  margin: 0;
+}
+
+.login-prompt a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.login-prompt a:hover {
+  text-decoration: underline;
+}
+
+/* Media Query for tablets and smaller screens */
+@media (max-width: 1100px) {
+  .width {
+    width: 85%;
+    margin: 20px auto 60px auto;
+  }
+
+  .alert {
+    width: 85%;
+  }
+
+  .company-header-section {
+    padding: 30px 0;
+  }
+
+  .jobs-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .company-card .info-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .company-card .info-label {
+    font-size: 16px;
+  }
+
+  .company-card .info-value {
+    font-size: 16px;
+  }
+
+  .company-card .info-value a {
+    font-size: 16px;
+  }
+
+  .company-card .navigation {
+    gap: 16px;
+    font-size: 16px;
+    padding-bottom: 12px;
+    margin: 20px 0;
+  }
+
+  .search-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-input,
+  .search-company {
+    max-width: 100%;
+    font-size: 15px;
+    padding: 10px 16px;
+  }
+
+  .searchcompany-input {
+    padding: 10px 16px 10px 40px;
+    font-size: 15px;
+  }
+
+  .search-button {
+    align-self: flex-start;
+    font-size: 15px;
+    padding: 10px 20px;
+  }
+
+  .company-card .name {
+    font-size: 24px;
+  }
+
+  .company-card .description {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-top: 20px;
+  }
+
+  .company-card .rating {
+    margin: 12px 0;
+  }
+
+  .company-card .rating-text,
+  .company-card .review-link {
+    font-size: 15px;
+  }
+
+  .company-card .star-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .reviews-section h2,
+  .company-card .info h2 {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+
+  .review-form textarea {
+    padding: 12px 16px;
+    font-size: 15px;
+  }
+
+  .reviews-overview {
+    padding: 20px;
+  }
+
+  .overall-rating h3 {
+    font-size: 18px;
+  }
+
+  .total-reviews {
+    font-size: 15px;
+  }
+
+  .review-text {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .reviewer-info h4 {
+    font-size: 16px;
+  }
+}
+
+/* Media Query for mobile devices */
+@media (max-width: 560px) {
+  .width {
+    width: 92%;
+    margin: 15px auto 40px auto;
+  }
+
+  .alert {
+    width: 92%;
+  }
+
+  .company-header-section {
+    padding: 20px 0;
+  }
+
+  .company-card .header {
+    margin-bottom: 10px;
+  }
+
+  .company-card .logo {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 12px;
+  }
+
+  .company-card .name {
+    font-size: 20px;
+  }
+
+  .company-card .rating-text,
+  .company-card .review-link {
+    font-size: 14px;
+  }
+
+  .company-card .star-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .company-card .navigation {
+    font-size: 14px;
+    gap: 12px;
+    margin: 16px 0;
+  }
+
+  .company-card .nav-item {
+    padding: 6px 0;
+  }
+
+  .company-card .nav-item.active::after {
+    bottom: -14px;
+  }
+
+  .company-card .info h2,
+  .reviews-section h2 {
+    font-size: 20px;
+    margin-bottom: 14px;
+  }
+
+  .company-card .info-label,
+  .company-card .info-value,
+  .company-card .info-value a {
+    font-size: 14px;
+  }
+
+  .company-card .description {
+    font-size: 14px;
+    margin-top: 16px;
+  }
+
+  .search-section h2 {
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+
+  .search-input,
+  .searchcompany-input {
+    padding: 8px 14px;
+    font-size: 14px;
+  }
+
+  .searchcompany-input {
+    padding-left: 36px;
+  }
+
+  .search-button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  .job-card {
+    padding: 15px;
+  }
+
+  .job-card h3 {
+    font-size: 1rem;
+    margin-bottom: 12px;
+  }
+
+  .location {
+    font-size: 13px;
+    margin-bottom: 8px;
+  }
+
+  .internship-description {
+    font-size: 13px;
+    line-height: 1.4;
+    margin-bottom: 10px;
+  }
+
+  .posted-time {
+    font-size: 13px;
+  }
+
+  .alert__message {
+    font-size: 14px;
+  }
+
+  .alert__wrapper {
+    padding: 14px;
+    gap: 10px;
+  }
+
+  .alert__dismiss {
+    font-size: 16px;
+  }
+
+  .review-card {
+    padding: 16px;
+  }
+
+  .rating-number {
+    font-size: 32px;
+  }
+
+  .reviews-overview {
+    padding: 16px;
+  }
+
+  .overall-rating h3 {
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+
+  .total-reviews {
+    font-size: 13px;
+  }
+
+  .review-form h3 {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
+  .review-form textarea {
+    padding: 10px 14px;
+    font-size: 14px;
+  }
+
+  .review-text {
+    font-size: 14px;
+  }
+
+  .reviewer-info h4 {
+    font-size: 15px;
+  }
+
+  .review-date {
+    font-size: 13px;
+  }
+
+  .submit-review {
+    width: 100%;
+    justify-content: center;
+    font-size: 14px;
+    padding: 10px 14px;
+  }
+
+  .company-card .write-review,
+  .company-card .write-review-disabled {
+    width: 100%;
+    justify-content: center;
+    font-size: 14px;
+    padding: 10px 14px;
+    width: auto;
+  }
+
+  .star-rating {
+    gap: 0.35rem;
+  }
+
+  .no-reviews {
+    font-size: 14px;
+    padding: 24px;
+  }
+
+  .results-count {
+    font-size: 13px;
+  }
+}

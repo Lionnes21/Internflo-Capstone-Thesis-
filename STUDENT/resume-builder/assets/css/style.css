@@ -1,0 +1,42 @@
+body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+.resume {
+    width: 794px; 
+    height: 1123px; 
+    margin: 0 auto;
+    padding: 80px;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    overflow: hidden; /* Prevent content overflow */
+}
+.header { display: flex; justify-content: space-between; align-items: center; }
+.header img { width: 180px; height: 180px; border-radius: 50%; }
+h1 { margin-bottom: 5px; }
+h2 { margin-top: 0; color: #666; }
+.section { margin-top: 20px; }
+.section-title { font-weight: bold; border-bottom: 1px solid #ccc; margin-bottom: 10px; }
+#downloadPdf { 
+    position: fixed; 
+    top: 20px; 
+    right: 20px; 
+    padding: 10px 20px; 
+    background-color: #007bff; 
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+}
+
+/* Hide download button when printing */
+@media print {
+    #downloadPdf {
+        display: none;
+    }
+    /* Adjust margins and layout for printing */
+    .resume {
+        width: auto;
+        height: auto;
+        padding: 20px;
+        box-shadow: none;
+        border: none;
+    }
+}

@@ -1,0 +1,338 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap");
+body {
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f3f5f7;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.assessment-card {
+  background: white;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+
+.timer {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 15px 0;
+  transition: color 0.3s ease;
+}
+
+.timer-normal {
+  color: #0056b3; /* Blue */
+}
+
+.timer-warning {
+  color: #ffc107; /* Yellow/Orange */
+}
+
+.timer-danger {
+  color: #dc3545; /* Red */
+}
+
+
+.progress-bar {
+  height: 4px;
+  background-color: #e0e0e0;
+  width: 100%;
+  position: relative;
+}
+
+.progress-bar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 10%;
+  background-color: #4caf50;
+}
+
+.question-text {
+  text-align: center;
+  font-size: 24px;
+  margin: 0 0 20px 0;
+  color: #2e3849;
+  font-weight: 600;
+}
+
+.option-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.option-item {
+  margin: 0 0 10px;
+  transition: all 0.2s;
+}
+
+.option-item label {
+  border: 1px solid #e0e0e0;
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Adds consistent spacing between input and text */
+  padding: 12px;
+  cursor: pointer;
+  color: #2e3849;
+  background-color: #f1f5f9;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  font-size: 14px;
+}
+
+.option-item label:hover {
+  background-color: #e2e8f0;
+}
+
+.option-item input:checked + label,
+.option-item label:has(input:checked) {
+  background-color: #cbd5e1;
+}
+
+/* Custom radio button styles */
+input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #2e3849;
+  border-radius: 50%;
+  outline: none;
+  margin: 0;
+  cursor: pointer;
+  flex-shrink: 0; /* Prevents the radio from shrinking */
+}
+
+input[type="radio"]:checked {
+  background-color: #2e3849;
+  border: 2px solid #2e3849;
+}
+
+input[type="radio"]:checked::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: white;
+}
+
+/* Custom checkbox styles */
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #2e3849;
+  border-radius: 3px;
+  outline: none;
+  margin: 0;
+  cursor: pointer;
+  flex-shrink: 0; /* Prevents the checkbox from shrinking */
+}
+
+input[type="checkbox"]:checked {
+  background-color: #2e3849;
+  border: 2px solid #2e3849;
+}
+
+input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.paragraph-answer {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 250px;
+  padding: 1rem;
+  font-family: monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  background-color: #2e3849;
+  /* border: 1px solid #555; */
+  border-radius: 5px;
+  resize: vertical;
+  margin: 0.5rem 0;
+  color: #f1f5f9;
+  transition: background-color 0.3s;
+  outline: none;
+}
+
+/* Update input margins for better spacing */
+.option-item input[type="radio"],
+.option-item input[type="checkbox"] {
+  margin: 0 10px 0 0;
+  flex-shrink: 0; /* Prevents the input from shrinking */
+}
+
+.submit-button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  display: block;
+  margin: 10px auto 0 auto;
+  transition: background-color 0.2s;
+}
+
+.submit-button:hover {
+  background-color: #45a049;
+}
+
+.form-header h2 {
+  font-size: 24px;
+  color: #171717;
+  margin: 0 0 10px 0;
+  text-align: center;
+}
+
+.form-header p {
+  font-size: 20px;
+  color: #2e3849;
+  margin: 0 0 10px 0;
+  text-align: center;
+}
+
+.assessment-header {
+  display: flex;
+  justify-content: space-between; /* Adjusts spacing between title and button */
+  align-items: center; /* Aligns items vertically in the center */
+  padding: 20px 0; /* Optional padding */
+  border-bottom: 2px solid #e0e0e0; /* Keep the border style */
+}
+
+.assessment-title {
+  margin: 0;
+  font-size: 28px;
+  color: #2e3849;
+  font-weight: bold;
+}
+
+.start-button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.start-button:hover {
+  background-color: #45a049;
+}
+
+.questions-container {
+  display: none;
+}
+
+.created-date {
+  font-size: 12px;
+  color: #999;
+  padding: 0 20px 20px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.modal-content {
+  position: relative;
+  background-color: #fff;
+  margin: 3% auto;
+  padding: 20px;
+  width: 80%;
+  max-width: 600px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.question-counter {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: #666;
+}
+
+.question-container {
+  /* Add this wrapper class to your HTML */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.difficulty-badge {
+  display: inline-block;
+  padding: 12px 16px;
+  border-radius: 4px;
+  margin: 0 auto 20px auto;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.difficulty-basic {
+  background-color: #e6f9e6;
+  border: 1px solid #b3e6b3;
+  color: #155724;
+}
+
+.difficulty-intermediate {
+  background-color: #fff3e0;
+  border: 1px solid #ffe0b2;
+  color: #ef6c00;
+}
+
+.difficulty-advanced {
+  background-color: #fbe9e7;
+  border: 1px solid #ffccbc;
+  color: #d84315;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 7px;
+  background-color: #e5e7eb; /* Lighter background */
+  border-radius: 5px;
+  margin: 15px 0;
+  overflow: hidden;
+}
+.progress {
+  width: 12.5%;
+  height: 100%;
+  background-color: #10b981;
+  transition: width 0.3s ease;
+}

@@ -1,0 +1,1359 @@
+/* FONTS IMPORT */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap");
+
+/* GLOBAL STYLES */
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: "Open Sans", sans-serif;
+}
+
+/* MAIN CONTAINER STYLES */
+.container {
+  width: 100%;
+  background-color: white;
+}
+
+/* FORM SECTION STYLES */
+.form-section {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto 100px auto;
+}
+
+.bgwidth {
+  background-color: #f3f5f7;
+  text-align: center;
+  padding: 60px 0;
+  border: none;
+  border-radius: 8px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin: 0 auto;
+}
+
+/* TYPOGRAPHY STYLES */
+.form-container h1 {
+  font-size: 36px;
+  color: #171717;
+  font-weight: 600;
+  margin: 0;
+}
+
+.form-container h2 {
+  font-size: 26px;
+  color: #171717;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* STEPPER STYLES */
+.stepper {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 0px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.step-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  position: relative;
+  padding: 0 20px;
+}
+
+.step-indicator:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 14px;
+  left: calc(50% + 25px);
+  width: calc(100% - 50px);
+  height: 4px;
+  background-image: linear-gradient(to right, #ddd 50%, transparent 50%);
+  background-size: 16px 2px;
+  background-repeat: repeat-x;
+  z-index: 1;
+}
+
+.step-circle {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.step-circle svg {
+  width: 30px;
+  height: 30px;
+}
+
+.step-indicator.active .step-circle svg {
+  fill: #449e25;
+}
+
+.step-indicator.active .step-circle svg path {
+  fill: #449e25;
+}
+
+.step-text {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #666;
+  white-space: nowrap;
+}
+
+.step-indicator.active .step-text {
+  color: #449e25;
+  font-weight: bold;
+}
+/* FORM LAYOUT STYLES */
+
+.form-step {
+  display: none;
+}
+
+.form-step.active {
+  display: block;
+}
+
+/* INPUT STYLES */
+.input-row {
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+.editor-container:focus-within {
+  outline: none;
+  border-color: blue;
+  box-shadow: 0 0 0 0.3rem rgba(0, 123, 255, 0.25);
+}
+
+.file-input {
+    position: relative;
+    width: 100%;
+}
+
+.file-input input[type="file"] {
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.file-input input[type="file"]:focus {
+    outline: none;
+    border-color: blue;
+    box-shadow: 0 0 0 0.3rem rgba(0, 123, 255, 0.25);
+}
+
+.file-input input[type="file"].input-error {
+    border-color: red;
+    box-shadow: 0 0 0 0.3rem rgba(255, 0, 0, 0.25);
+}
+
+.file-input input[type="file"].valid {
+    border-color: green;
+    box-shadow: none;
+}
+
+.editor-container.valid {
+  border-color: green;
+}
+
+/* Focus styles for non-error inputs */
+input:focus,
+select:focus,
+textarea:focus,
+.editor-container:focus-within {
+  outline: none;
+  border-color: blue;
+  box-shadow: 0 0 0 0.3rem rgba(0, 123, 255, 0.25);
+}
+
+/* Keep red border for inputs and selects with 'input-error' class even on focus */
+input.input-error:focus,
+select.input-error:focus,
+textarea.input-error:focus,
+.editor-container.input-error:focus-within {
+  border-color: red;
+  box-shadow: 0 0 0 0.3rem rgba(255, 0, 0, 0.25);
+}
+
+/* Green border for valid inputs and selects */
+input.valid,
+select.valid,
+textarea.valid,
+.editor-container.valid {
+  border-color: green;
+  box-shadow: none;
+}
+
+/* Red border and text for invalid inputs and selects */
+input.input-error,
+select.input-error,
+textarea.input-error,
+.editor-container.input-error {
+  border-color: red;
+  box-shadow: 0 0 0 0.3rem rgba(255, 0, 0, 0.25);
+}
+
+/* Error message styling */
+.error-message {
+  color: red;
+  font-size: 15px;
+  margin: 8px 0 0 0;
+}
+
+.form-error {
+  color: red;
+  font-size: 15px;
+  margin: 8px 0 0 0;
+}
+
+.file-input-wrapper {
+  position: relative;
+  margin-bottom: 30px; /* Add space for the error message */
+}
+
+.error-messages {
+  margin: 10px 0 0 0;
+}
+/* Red border for invalid file input */
+.file-input input[type="file"].input-error {
+  border-color: red;
+  box-shadow: 0 0 0 0.3rem rgba(255, 0, 0, 0.25);
+}
+
+/* Green border for valid file input */
+input[type="file"].valid {
+  border-color: green;
+  box-shadow: none;
+}
+
+/* Input and Select Styling */
+input {
+  width: 100%;
+  padding: 16px;
+  border: 2px solid #5a6478;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  border-radius: 4px;
+  transition: all 0.2s ease; /* Updated transition */
+  box-sizing: border-box;
+}
+
+select {
+  width: 100%;
+  padding: 16px;
+  border: 2px solid #5a6478;
+  font-size: 16px;
+  border-radius: 4px;
+  transition: all 0.2s ease; /* Updated transition */
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+/* Input Container for Step 2 */
+.input-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  position: relative;
+  transition: all 0.2s ease; /* Updated transition */
+}
+input::placeholder {
+  color: #4a5a73;
+}
+
+.input-norm {
+  margin-bottom: 1rem;
+}
+
+.input-norm-verification {
+  margin-bottom: 10px;
+}
+
+.section-label {
+  display: block;
+  color: #666;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.section-label-logo {
+  display: block;
+  color: #666;
+  font-size: 16px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+textarea {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: "Open Sans", sans-serif;
+  transition: all 0.2s ease; /* Updated transition */
+  font-size: 15px;
+  resize: vertical;
+}
+
+textarea::placeholder {
+  color: #4a5a73;
+}
+
+.address-container {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.map-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 15px;
+  background-color: #002b7f;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: "Open Sans", sans-serif;
+  white-space: nowrap;
+}
+
+.button-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+
+.helper-text {
+  color: #666;
+  font-size: 16px;
+  font-style: italic;
+  margin-top: 8px;
+}
+
+.upload-label {
+  display: block;
+  margin-bottom: 8px;
+  color: #666;
+  font-size: 16px;
+  text-align: left;
+}
+
+.file-input-wrapper {
+  width: 150px;
+  height: 150px;
+  border: 3px dashed #ddd;
+  border-radius: 8px;
+  margin: 0;
+  position: relative;
+  box-sizing: border-box; /* Add this to include border in width/height calculation */
+}
+.logo-container-org {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0 10px 0;
+}
+
+.preview-image {
+  position: absolute;
+  top: -2px; /* Offset by border width to align perfectly */
+  left: -2px; /* Offset by border width to align perfectly */
+  display: none;
+  width: calc(100% + 4px); /* Add border width to both sides */
+  height: calc(100% + 4px); /* Add border width to both sides */
+  border-radius: 8px;
+  border: none;
+  margin: 0;
+  box-sizing: border-box; /* Add this to include border in width/height calculation */
+}
+
+.remove-image {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  min-width: 22px;
+  width: 22px;
+  height: 22px;
+  background-color: rgba(51, 51, 51, 0.9);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 300;
+  color: white;
+  padding: 0;
+  line-height: 1;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  flex-shrink: 0;
+  transform: none;
+}
+.remove-image:hover {
+  background-color: rgba(51, 51, 51, 1);
+}
+
+/* Reset any browser default styles */
+.remove-image:focus {
+  outline: none;
+}
+
+.upload-content {
+  position: absolute; /* Changed to absolute */
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* Optional: add smooth transition between states */
+.preview-image,
+.upload-content {
+  transition: all 0.3s ease;
+}
+
+.custom-file-upload {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  position: relative; /* Added for stacking context */
+}
+.custom-file-upload svg {
+  color: #ddd;
+}
+
+/* SELECT DROPDOWN STYLES */
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 12px;
+  padding-right: 40px;
+}
+
+/* PASSWORD INPUT STYLES */
+.input-norm-password {
+  margin-bottom: 1rem;
+}
+.password-container {
+  position: relative;
+}
+
+.date-banner {
+  display: flex;
+  align-items: center;
+  margin: 15px auto;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+
+.date-banner-text {
+  color: #666666;
+  font-family: "Open Sans", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  margin: 0;
+  word-break: break-word;
+  flex-grow: 1;
+}
+
+.date-banner-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.date-banner-content svg {
+  flex-shrink: 0;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 15px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #aaa;
+  font-size: 18px;
+  top: 30px;
+}
+.toggle-password.fa-eye {
+  color: #449e25;
+}
+
+/* FILE INPUT STYLES */
+.file-input {
+  position: relative;
+}
+
+.file-input label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #666;
+  font-size: 16px;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.file-input input[type="file"] {
+  width: 100%;
+  padding: 8px;
+  background-color: #f5f5f5;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease; /* Updated transition */
+}
+
+.file-input input[type="file"]::file-selector-button {
+  padding: 8px 16px;
+  margin-right: 16px;
+  border: none;
+  background: #e9e9e9;
+  border-radius: 4px;
+  color: #333;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.file-input input[type="file"]::after {
+  content: attr(value);
+  position: absolute;
+  left: 120px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666;
+}
+
+/* BUTTON STYLES */
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.button-group button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  padding: 15px;
+  font-size: 16px;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: color 0.3s ease;
+  min-width: 120px;
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+  overflow: hidden;
+  z-index: 1;
+  gap: 8px;
+}
+
+.button-group button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotateX(0deg);
+  transform-origin: top;
+  transition: transform 0.5s ease;
+  z-index: -1;
+}
+
+.button-group button:hover::before {
+  transform: rotateX(90deg);
+}
+
+/* Previous button styles */
+.prev-btn {
+  background-color: #6c757d;
+}
+
+.prev-btn::before {
+  background-color: #5a6268;
+}
+
+.prev-btn:active {
+  background-color: #495057;
+}
+
+/* Next button styles */
+.next-btn {
+  background-color: #4aa629;
+}
+
+.next-btn::before {
+  background-color: #449e25;
+}
+
+.next-btn:active {
+  background-color: #3d8b40;
+}
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+/* SIGN IN LINK STYLES */
+.sign-in {
+  text-align: center;
+  color: #2e3849;
+  margin-top: 1.5rem;
+  font-size: 16px;
+}
+
+.sign-in a {
+  font-weight: 600;
+  color: #0000ee;
+  text-decoration: none;
+  text-underline-offset: 4px;
+}
+.sign-in a:hover {
+  text-decoration: underline;
+}
+
+/* Internship Banner styles */
+.internship-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.8rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  max-width: 700px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.internship-text {
+  color: #2e3849;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.highlight-orange {
+  color: #e77d33;
+  font-weight: 600;
+}
+
+.highlight {
+  color: #ff8c00;
+}
+
+.get-started-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background-color: #45a049;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 17px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.get-started-btn:hover {
+  background-color: #3d8b40;
+}
+
+.get-started-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.get-started-btn:hover svg {
+  transform: translateX(4px);
+}
+
+.alert {
+  background-color: #fff9e6;
+  border-radius: 4px;
+  width: 60%; /* Match container width */
+  box-sizing: border-box; /* Include padding in width calculation */
+  margin: 30px auto; /* Changed from auto to 0 for left/right margins */
+}
+
+.alert__wrapper {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 24px; /* Reduced padding to better match input/button */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.alert__icon {
+  display: flex;
+  align-items: center;
+}
+
+.alert__icon svg {
+  vertical-align: middle; /* Align SVG with text */
+}
+
+.alert__message {
+  color: #856404; /* Dark red text */
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 18px;
+  margin: 0;
+  font-weight: 600;
+}
+
+.editor-container {
+  border: 2px solid #5a6478;
+  border-radius: 4px;
+  width: 100%;
+  background: white;
+  transition: all 0.2s ease; /* Updated transition */
+}
+
+.editor[data-placeholder]:empty::before {
+  content: attr(data-placeholder);
+  color: #4a5a73 !important; /* Change this to your desired placeholder color */
+  pointer-events: none;
+  display: block;
+}
+.toolbar {
+  padding: 8px;
+  border-bottom: 2px solid #5a6478;
+  display: flex;
+  gap: 8px;
+  background: #f8f9fa;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.toolbar button {
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #5e6278;
+}
+
+.toolbar button:hover {
+  background-color: #e9ecef;
+}
+
+.toolbar button.active {
+  background-color: #e9ecef;
+  color: #000;
+}
+
+.editor {
+  transition: all 0.2s ease; /* Updated transition */
+  padding: 12px;
+  min-height: 150px;
+  outline: none;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.form-fields {
+  display: flex; /* Use flexbox */
+  flex-direction: column; /* Stack the inputs vertically */
+  gap: 15px; /* Adjust the gap size as needed */
+}
+
+.tip {
+  background-color: #f8f9fa; /* Light background color */
+  border-left: 4px solid #002b7f; /* Blue left border */
+  padding: 20px 15px; /* Padding around the text */
+  margin: 20px 0; /* Margin to separate from other elements */
+  border-radius: 4px; /* Rounded corners */
+  font-size: 16px; /* Font size */
+  color: #495057; /* Dark text color */
+  line-height: 1.5; /* Line height for readability */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  display: flex; /* Flexbox for alignment */
+  align-items: center; /* Center icon and text vertically */
+  gap: 8px; /* Space between icon and text */
+}
+
+.tip i {
+  color: #002b7f; /* Icon color */
+  font-size: 18px; /* Adjust size as needed */
+}
+.note {
+  background-color: #f8f9fa;
+  border-left: 4px solid #ff8c00;
+  padding: 20px 15px;
+  margin: 20px 0;
+  border-radius: 4px;
+  font-size: 16px;
+  color: #495057;
+  line-height: 1.5;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.note i {
+  color: #ff8c00;
+  font-size: 18px; /* Adjust size as needed */
+}
+
+/* Media Query for tablets and smaller screens (1100px) */
+@media screen and (max-width: 1100px) {
+  .form-section {
+    width: 95%;
+    margin: 0 auto 60px auto;
+  }
+
+  .bgwidth {
+    padding: 50px 25px;
+  }
+
+  form {
+    width: 100%;
+  }
+
+  .form-container h1 {
+    font-size: 32px;
+  }
+
+  .form-container h2 {
+    font-size: 22px;
+  }
+
+  .stepper {
+    padding: 30px 0px;
+  }
+
+  .step-indicator {
+    padding: 0 15px;
+  }
+
+  .step-circle {
+    width: 25px;
+    height: 25px;
+  }
+
+  .step-circle svg {
+    width: 25px;
+    height: 25px;
+  }
+
+  .step-text {
+    font-size: 12px;
+  }
+
+  .address-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .map-button {
+    width: 100%;
+    padding: 14px;
+    font-size: 15px;
+  }
+
+  input,
+  select,
+  textarea {
+    padding: 14px;
+    font-size: 15px;
+    width: 100%;
+  }
+
+  .section-label,
+  .section-label-logo,
+  .upload-label {
+    font-size: 15px;
+    margin-bottom: 12px;
+  }
+
+  .helper-text {
+    font-size: 15px;
+  }
+
+  .file-input-wrapper {
+    width: 140px;
+    height: 140px;
+  }
+
+  .button-group {
+    gap: 15px;
+    margin-top: 20px;
+  }
+
+  .button-group button {
+    padding: 14px;
+    font-size: 15px;
+    min-width: 110px;
+  }
+
+  .sign-in {
+    font-size: 15px;
+    margin-top: 1.2rem;
+  }
+
+  .alert {
+    width: 95%;
+    margin: 25px auto;
+  }
+
+  .alert__wrapper {
+    padding: 20px;
+  }
+
+  .alert__message {
+    font-size: 16px;
+  }
+
+  .editor-container {
+    min-height: 140px;
+  }
+
+  .editor {
+    font-size: 15px;
+    min-height: 140px;
+    padding: 12px;
+  }
+
+  .toolbar {
+    padding: 8px;
+    gap: 8px;
+  }
+
+  .toolbar button {
+    width: 28px;
+    height: 28px;
+  }
+
+  .tip,
+  .note {
+    padding: 14px 10px;
+    font-size: 13px;
+    margin: 20px 0;
+  }
+
+  .tip svg,
+  .note svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .internship-banner {
+    padding: 1.2rem;
+    flex-direction: column;
+    gap: 18px;
+    text-align: center;
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  .internship-text {
+    font-size: 16px;
+  }
+
+  .get-started-btn {
+    width: 100%;
+    justify-content: center;
+    font-size: 16px;
+  }
+}
+
+/* Media Query for mobile devices (560px) */
+@media screen and (max-width: 560px) {
+  .form-section {
+    width: 95%;
+    margin: 0 auto 40px auto;
+  }
+
+  .bgwidth {
+    padding: 40px 20px;
+  }
+
+  form {
+    width: 100%;
+  }
+
+  .form-container h1 {
+    font-size: 28px;
+  }
+
+  .form-container h2 {
+    font-size: 20px;
+  }
+
+  .stepper {
+    padding: 20px 0px;
+  }
+
+  .step-indicator {
+    padding: 0 10px;
+  }
+
+  .step-circle {
+    width: 20px;
+    height: 20px;
+  }
+
+  .step-circle svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .step-text {
+    font-size: 11px;
+  }
+
+  .address-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .map-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  input,
+  select,
+  textarea {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .section-label,
+  .section-label-logo,
+  .upload-label {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  .helper-text {
+    font-size: 14px;
+  }
+
+  .file-input-wrapper {
+    width: 120px;
+    height: 120px;
+  }
+
+  .button-group {
+    gap: 10px;
+    margin-top: 15px;
+  }
+
+  .button-group button {
+    padding: 10px;
+    font-size: 14px;
+    min-width: 90px;
+  }
+
+  .sign-in {
+    font-size: 14px;
+    margin-top: 1rem;
+  }
+
+  .alert {
+    width: 95%;
+    margin: 20px auto;
+  }
+
+  .alert__wrapper {
+    padding: 15px;
+  }
+
+  .alert__message {
+    font-size: 14px;
+  }
+
+  .editor-container {
+    min-height: 120px;
+  }
+
+  .editor {
+    font-size: 14px;
+    min-height: 120px;
+    padding: 10px;
+  }
+
+  .toolbar {
+    padding: 6px;
+    gap: 6px;
+  }
+
+  .toolbar button {
+    width: 25px;
+    height: 25px;
+  }
+
+  .tip,
+  .note {
+    padding: 12px 8px;
+    font-size: 12px;
+    margin: 15px 0;
+  }
+
+  .tip svg,
+  .note svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.terms-modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  z-index: 4000;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.terms-modal-content {
+  position: relative;
+  background-color: #fff;
+  margin: 7.5% auto;
+  width: 100%;
+  max-width: 700px;
+  max-height: 80vh;
+  overflow-y: auto;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  animation: slideIn 0.3s ease-in-out;
+
+  /* Modern minimal scrollbar */
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(200, 200, 200, 0.8);
+    border-radius: 2px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: rgba(180, 180, 180, 1);
+  }
+}
+
+.terms-modal-width {
+  width: 90%;
+  margin: 40px auto 20px auto;
+}
+/* Keep your existing styles */
+.terms-policies-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Open Sans", sans-serif;
+}
+
+.terms-policies-fold {
+  margin: 20px 0;
+}
+
+.terms-policies-radio {
+  margin: 0;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.terms-policies-text {
+  font-size: 16px;
+  color: #2e3849;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.terms-policies-text a {
+  color: #0000ee;
+  text-decoration: none;
+  font-weight: 600;
+  text-underline-offset: 4px;
+}
+
+.terms-policies-text a:hover {
+  text-decoration: underline;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+h1 {
+  margin: 0;
+  color: #2e3849;
+}
+
+.terms-header {
+  margin-bottom: 20px;
+}
+
+.terms-header h1 {
+  font-family: "Open Sans", sans-serif;
+  color: #2e3849;
+  font-size: 43px;
+  margin: 0 0 20px 0;
+  font-weight: 600;
+  text-align: center;
+}
+
+.terms-header h2 {
+  font-family: "Open Sans", sans-serif;
+  color: #2e3849;
+  font-size: 24px;
+  margin: 0 0 10px 0;
+  font-weight: 600;
+  text-align: center;
+}
+
+.terms-body {
+  line-height: 1.6;
+  color: #2e3849;
+}
+
+.details {
+  color: #666666;
+  font-size: 16px;
+  margin: 0 0 10px 0;
+}
+
+.intro {
+  color: #666666;
+  font-size: 16px;
+  margin: 0 0 30px 0;
+  text-align: center;
+}
+
+.terms-body h3 {
+  color: #2e3849;
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0 0 10px 0;
+}
+
+.terms-section {
+  margin-bottom: 20px;
+}
+
+.terms-section {
+  color: #2e3849;
+  font-size: 16px;
+  margin: 0 0 10px 0;
+}
+
+.terms-section h3 {
+  font-family: "Open Sans", sans-serif;
+  color: #2e3849;
+  margin: 0 0 10px 0;
+  font-size: 18px;
+}
+
+.terms-list {
+  font-family: "Open Sans", sans-serif;
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+
+.terms-sub-list {
+  font-family: "Open Sans", sans-serif;
+  padding-left: 40px;
+  margin-top: 5px;
+}
+
+.acceptbtn {
+  margin: 20px 0 0 0;
+  padding: 12px;
+  background-color: #002b7f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+
+  /* Add these properties for alignment */
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Adds space between the icon and text */
+}
+
+/* Optional: Adjust the SVG size if needed */
+.acceptbtn svg {
+  flex-shrink: 0; /* Prevents the SVG from shrinking */
+}

@@ -1,0 +1,161 @@
+.home-section {
+    position: relative;
+    background: #E4E9F7;
+    height: 120vh;
+    left: 260px;
+    width: calc(100% - 260px);
+    transition: all 0.5s ease;
+}
+
+/* Report Section */
+.report-section {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    margin-left: 80px;
+    margin-top: 30px;
+}
+
+.report-section h3 {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.report-section form {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+
+.report-section form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.report-section form input[type="file"],
+.report-section form select,
+.report-section form input[type="text"],
+.report-section form input[type="submit"] {
+    padding: 8px;
+    font-size: 13px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 12px; /* Reduce margin between form elements */
+}
+
+.report-section form input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    width: 30%;
+    align-self: flex-end;
+}
+
+.report-section form input[type="submit"]:hover {
+    background-color: #3d833f;
+}
+
+/* Table Styles */
+.submitted-section h3 {
+    margin-top: 20px;
+    margin-left: 80px;
+}
+
+table {
+    width: 90%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    margin-left: 50px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+table th, table td {
+    padding: 15px;
+    text-align: left;
+}
+
+table th {
+    background-color: #4b4f4b;
+    color: white;
+}
+
+table tr {
+    background-color: #f9f9f9;
+}
+
+/* Responsive Styles for Tablets (max-width: 768px) */
+@media (max-width: 768px) {
+
+    table, th, td {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .report-section {
+        padding: 15px;
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .report-section form {
+        width: 100%;
+    }
+
+    .report-section form input[type="submit"] {
+        width: 50%;
+        margin-left: auto; /* Ensure it's aligned to the right side */
+    }
+
+    .submitted-section h3 {
+        margin-left: 20px;
+    }
+    .submitted-section{
+        width: 50%;
+    }
+
+    table {
+        width: 95%;
+        margin-left: 20px;
+    }
+}
+
+/* Responsive Styles for Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+
+    table, th, td {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .report-section {
+        padding: 10px;
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .report-section form {
+        width: 100%;
+    }
+
+    .report-section form input[type="submit"] {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .submitted-section h3 {
+        margin-left: 10px;
+    }
+
+    table {
+        width: 100%;
+        margin-left: 10px;
+    }
+    .home-section{
+        height: 170vh;
+    }
+}

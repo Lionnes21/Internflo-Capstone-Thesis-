@@ -1,0 +1,132 @@
+/* General reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f8f9fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px; /* Add some padding to ensure content is not too close to edges */
+}
+
+fieldset {
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    padding: 20px;
+    max-width: 400px;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 0 auto; /* Center the container */
+}
+
+button.btnVerify,
+button.btnEmail {
+    margin-top: 10px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    background-color: #529f37;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%; /* Ensures buttons take up the full width of their container */
+}
+
+button.btnVerify:hover,
+button.btnEmail:hover {
+    background-color: #478831;
+}
+
+/* Success message styling */
+.gmail-success {
+    color: rgb(18, 120, 18); /* Match the color with .gmail-success */
+    text-align: center; /* Center align the text */
+    font-size: 1.5rem; /* Adjust font size if needed */
+    margin-bottom: 15px; /* Space below the heading */
+}
+
+.gmail-msg-success {
+    color: #6c757d; /* Grey text color */
+    font-size: 1rem; /* Font size */
+    margin-bottom: 15px; /* Space below the paragraph */
+    text-align: center; /* Center align the text */
+}
+
+/* Error message styling */
+.gmail-h1 {
+    color: rgb(255, 0, 0); /* Red text color */
+    text-align: center; /* Center align the text */
+    font-size: 1.5rem; /* Adjust font size if needed */
+    margin-bottom: 15px; /* Space below the heading */
+}
+
+.gmail-error {
+    color: #6c757d; /* Grey text color */
+    font-size: 1rem; /* Font size */
+    margin-bottom: 15px; /* Space below the paragraph */
+    text-align: center; /* Center align the text */
+}
+
+/* New styles for SVG centering */
+.svg-container,
+.svg-container-error {
+    text-align: center; /* Center the SVG horizontally */
+    margin-bottom: 15px;
+}
+
+.svg-container svg {
+    width: 150px; /* Adjust size for responsiveness */
+    height: 150px;
+    stroke: rgb(18, 120, 18); /* Match the color with .gmail-success */
+}
+
+.svg-container-error svg {
+    width: 150px; /* Adjust size for responsiveness */
+    height: 150px;
+    stroke: rgb(255, 0, 0); /* Match the color with .gmail-h1 */
+}
+
+/* Responsive design */
+@media (max-width: 1100px) {
+    fieldset {
+        padding: 15px;
+        max-width: 100%;
+    }
+    
+    .gmail-success,
+    .gmail-h1 {
+        font-size: 1.3rem; /* Adjust font size for smaller screens */
+    }
+    
+    .gmail-msg-success,
+    .gmail-error {
+        font-size: 0.9rem; /* Adjust font size for smaller screens */
+    }
+    
+    .svg-container svg,
+    .svg-container-error svg {
+        width: 70px; /* Adjust SVG size for smaller screens */
+        height: 70px;
+    }
+}
+
+
+/* Style for the container of the logo */
+.logo-container {
+    text-align: center; /* Centers the content inside the container */
+    margin: 0 auto; /* Centers the container itself if it's a block element */
+}
+
+/* Style for the OTP message */
+.otp-message {
+    text-align: center; /* Centers the OTP message text */
+    margin-top: 10px; /* Adds some space above the OTP message */
+}

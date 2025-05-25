@@ -1,0 +1,255 @@
+/* General Footer Styling */
+footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 50px 0;
+  background-color: transparent;
+}
+
+/* Container Styling */
+.properdiv {
+  width: 80%;
+  margin: 0 auto;
+  font-family: "Open Sans", sans-serif;
+}
+
+/* Background Styling */
+.footbg {
+  background-color: #000;
+}
+.rightside h2 {
+  font-family: "Muli", sans-serif;
+  color: #ffff;
+  font-weight: 500;
+  margin: 0 0 10px 0;
+}
+
+.rightside h4 {
+  font-family: "Muli", sans-serif;
+  color: #ffff;
+  font-weight: 500;
+  margin: 0 0 20px 0;
+}
+/* Right Side (Logo and Contact Info) */
+.rightside img {
+  width: 300px;
+  margin-bottom: 20px;
+}
+
+.rightside p {
+  display: flex;
+  align-items: center;
+  margin: 0 0 10px 0;
+  color: #b4aca8;
+}
+
+.rightside p svg {
+  flex-shrink: 0;
+  margin-right: 10px;
+}
+
+/* Center Side (Sections) */
+
+.centerside h4 {
+  color: #ffff;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  margin-top: 21px;
+  font-weight: 500;
+}
+
+.centerside ul {
+  list-style-type: none;
+  padding: 0;
+  line-height: 2;
+  color: #b4aca8;
+}
+
+.centerside ul li a {
+  color: #b4aca8;
+  text-decoration: none;
+}
+
+.centerside ul li a:hover {
+  color: #fd6f41;
+  transition: 0.5s;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 992px) {
+  footer {
+    flex-direction: column;
+    align-items: center;
+  }
+  .rightside h2 {
+    text-align: center;
+  }
+
+  .rightside img {
+    width: 100%;
+    max-width: 250px; /* Adjust as needed */
+    margin-bottom: 15px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto; /* Center the image */
+  }
+
+  .rightside p {
+    text-align: center;
+    justify-content: center;
+  }
+
+  .centerside {
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .centerside ul {
+    padding: 0;
+  }
+
+  .centerside h4 {
+    font-size: 1.2rem;
+  }
+}
+
+.underfooter {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: Arial, sans-serif;
+}
+
+.underfooter-bg {
+  background-color: #14100f;
+}
+
+.uf-content {
+  padding: 20px;
+}
+
+.uf-content p {
+  margin: 0;
+  text-align: center;
+  color: #b4aca8;
+}
+
+.university-name {
+  font: white;
+}
+
+.program-name {
+  font: white;
+}
+@media (max-width: 992px) {
+  footer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .rightside h2 {
+    text-align: center;
+  }
+
+  .rightside h4 {
+    text-align: center;
+  }
+
+  .rightside img {
+    width: 100%;
+    max-width: 250px;
+    margin-bottom: 15px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .rightside p {
+    text-align: center;
+    justify-content: center;
+  }
+
+  .centerside {
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .centerside ul {
+    padding: 0;
+  }
+
+  .centerside h4 {
+    font-size: 1.2rem;
+  }
+}
+
+/* Responsive Design for Medium Mobile (480px) */
+@media (max-width: 480px) {
+  footer {
+    padding: 30px 0;
+  }
+
+  .properdiv {
+    width: 90%; /* Increase usable space on smaller screens */
+  }
+
+  .rightside img {
+    max-width: 200px; /* Smaller logo for mobile */
+  }
+
+  .rightside h2 {
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+  }
+
+  .rightside h4 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  .rightside p {
+    font-size: 0.9rem; /* Smaller text */
+    margin-bottom: 8px;
+    flex-direction: column; /* Stack icon and text vertically */
+    gap: 5px;
+  }
+
+  .rightside p svg {
+    margin-right: 0;
+    margin-bottom: 5px;
+  }
+
+  .centerside {
+    margin-top: 25px;
+    width: 100%;
+  }
+
+  .centerside h4 {
+    font-size: 1.1rem;
+    margin-top: 15px;
+  }
+
+  .centerside ul {
+    line-height: 1.8; /* Slightly reduced line height */
+    font-size: 0.9rem;
+  }
+
+  .centerside ul li {
+    margin-bottom: 5px;
+  }
+
+  /* Underfooter adjustments */
+  .underfooter {
+    width: 90%;
+  }
+
+  .uf-content {
+    padding: 15px;
+  }
+
+  .uf-content p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+}

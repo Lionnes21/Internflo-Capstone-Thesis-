@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap");
+        .terms-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #ff6600;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-family: "Open Sans", sans-serif;
+        }
+
+        .radio-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            font-family: "Open Sans", sans-serif;
+        }
+
+        .radio-container input[type="radio"] {
+            margin: 0;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .radio-container label {
+            font-size: 16px;
+            color: #2e3849;
+            cursor: pointer;
+        }
+
+        .strong {
+            font-weight: 600;
+            }
+        .terms-button:hover {
+            background-color: #e65c00;
+        }
+
+        .terms-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0);
+            z-index: 1000;
+            opacity: 0;
+            transition: background-color 0.3s ease, opacity 0.3s ease;
+        }
+
+        .terms-modal.active {
+            display: block;
+            opacity: 1;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .terms-modal-content {
+            font-family: "Open Sans", sans-serif;
+            position: relative;
+            background-color: white;
+            margin: 5% auto;
+            padding: 20px;
+            width: 70%;
+            max-width: 700px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-height: 70vh;
+            overflow-y: auto;
+            transform: translateY(-100px);
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .terms-modal.active .terms-modal-content {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .terms-header {
+            margin-bottom: 20px;
+        }
+
+        .terms-header h1 {
+            font-family: "Open Sans", sans-serif;
+            color: #2e3849;
+            font-size: 43px;
+            margin: 0 0 20px 0;
+            font-weight: 600;
+        }
+
+        .terms-header h2 {
+            font-family: "Open Sans", sans-serif;
+            color: #2e3849;
+            font-size: 24px;
+            margin: 0 0 10px 0;
+            font-weight: 600;
+        }
+
+        .terms-body {
+            line-height: 1.6;
+            color: #2e3849;
+        }
+
+        .terms-body p {
+            color: #666666;
+            font-size: 16px;
+            margin: 0 0 10px 0;
+        }
+
+        .terms-body h3{
+            color: #2e3849;
+            font-size: 24px;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+        }
+
+        .terms-section {
+            margin-bottom: 20px;
+        }
+        
+        .terms-section {
+            color: #2e3849;
+            font-size: 16px;
+            margin: 0 0 10px 0;
+        }
+
+        .terms-section h3 {
+            font-family: "Open Sans", sans-serif;
+            color: #2e3849;
+            margin: 0 0 10px 0;
+            font-size: 18px;
+        }
+
+        .terms-list {
+            font-family: "Open Sans", sans-serif;
+            padding-left: 20px;
+            margin-bottom: 10px;
+        }
+
+        .terms-sub-list {
+            font-family: "Open Sans", sans-serif;
+            padding-left: 40px;
+            margin-top: 5px;
+        }
+
+        .highlight {
+            color: #ff8c00;
+        }
+    </style>
+</head>
+<body>
+    <button class="terms-button" onclick="openModal()">Terms and Conditions</button>
+
+    <div id="termsModal" class="terms-modal">
+        <div class="terms-modal-content">
+            <div class="terms-header">
+                <h1>Intern<span class="highlight">flo.</span></h1>
+                <h2>University of Caloocan City</h2>
+
+            </div>
+            <div class="terms-body">
+                <p>Welcome to University of Caloocan City InternFlo. These Terms and Conditions ("Terms") govern your use of the Portal and the services provided through it. By accessing or using the Portal, you agree to abide by these Terms. If you do not agree, please do not use the Portal.</p>
+                <h3>Terms and Conditions</h3>
+                <div class="terms-section">
+                    <h3>Definitions</h3>
+                    <ul class="terms-list">
+                        <li><span class="strong">"Portal"</span> refers to the internship portal operated by Arcane.</li>
+                        <li><span class="strong">"User"</span> refers to any individual or entity accessing the Portal, including interns, employers, and educational institutions.</li>
+                        <li><span class="strong">"Content"</span> includes all information, materials, and data available on the Portal.</li>
+                    </ul>
+                </div>
+
+                <div class="terms-section">
+                    <h3>User Eligibility</h3>
+                    <p>Users must meet the following criteria to use the Portal:</p>
+                    <ul class="terms-list">
+                        <li>Be a bonafide student of University of Caloocan City.</li>
+                        <li>Provide specific requirements for educational institutions.</li>
+                        <li>Provide accurate and complete information during registration.</li>
+                        <li>Comply with all applicable laws and regulations.</li>
+                    </ul>
+                </div>
+
+                <div class="terms-section">
+                    <h3>User Accounts</h3>
+                    <ul class="terms-list">
+                        <li>Users must create an account to access certain features of the Portal.</li>
+                        <li>Users are responsible for maintaining the confidentiality of their login credentials.</li>
+                        <li>Users must notify the Portal immediately in case of unauthorized account access.</li>
+                    </ul>
+                </div>
+
+                <div class="terms-section">
+                    <h3>Use of the Portal</h3>
+                    <ul class="terms-list">
+                        <li>The Portal is designed to facilitate connections between interns and employers.</li>
+                        <li>Users agree to use the Portal solely for lawful purposes.</li>
+                        <li>Users may not:
+                            <ul class="terms-sub-list">
+                                <li>Post false or misleading information.</li>
+                                <li>Share content that is offensive, defamatory, or violates any laws.</li>
+                                <li>Attempt to disrupt the Portal's functionality.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="terms-section">
+                    <h3>Internships</h3>
+                    <ul class="terms-list">
+                        <li>The Portal acts as a medium for connecting interns and employers and does not guarantee internship placements.</li>
+                        <li>Employers are solely responsible for the internship opportunities they post.</li>
+                        <li>Interns are responsible for verifying the legitimacy of opportunities before applying.</li>
+                    </ul>
+                </div>
+
+                <div class="terms-section">
+                    <h3>Content Ownership and Use</h3>
+                    <ul class="terms-list">
+                        <li>Users retain ownership of the content they upload.</li>
+                        <li>By uploading content, Users grant the Portal a non-exclusive, worldwide, royalty-free license to use, reproduce, and display the content as necessary for Portal operations.</li>
+                    </ul>
+                </div>
+
+                <div class="terms-section">
+                    <h3>Privacy Policy</h3>
+                    <p>The Portal's Privacy Policy governs the collection and use of Users' personal information. By using the Portal, you consent to the practices described in the Privacy Policy.</p>
+                </div>
+
+                <div class="terms-section">
+                    <h3>Limitation of Liability</h3>
+                    <ul class="terms-list">
+                        <li>The Portal is provided "as is" and "as available."</li>
+                        <li>The Portal is not responsible for any damages resulting from:
+                            <ul class="terms-sub-list">
+                                <li>Use or inability to use the Portal.</li>
+                                <li>Misconduct by other Users or third parties.</li>
+                                <li>Errors or inaccuracies in the content provided.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="terms-section">
+                    <h3>Termination</h3>
+                    <p>The Portal reserves the right to terminate or suspend access to any User for any reason, including breach of these Terms.</p>
+                </div>
+
+                <div class="terms-section">
+                    <h3>Changes to Terms</h3>
+                    <p>The Portal may update these Terms at any time. Users will be notified of significant changes, and continued use of the Portal constitutes acceptance of the updated Terms.</p>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="terms-accept" name="terms">
+                    <label for="terms-accept">I have read and agree to these terms and conditions</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!DOCTYPE html>
+    <!-- Previous head and style content remains the same -->
+    
+    <script>
+        function openModal() {
+            const modal = document.getElementById("termsModal");
+            modal.style.display = "block";
+            // Reset radio button
+            document.getElementById("terms-accept").checked = false;
+            // Trigger reflow
+            modal.offsetHeight;
+            // Add active class for animation
+            modal.classList.add("active");
+        }
+
+        function closeModal() {
+            const modal = document.getElementById("termsModal");
+            modal.classList.remove("active");
+            // Wait for animation to finish before hiding
+            setTimeout(() => {
+                modal.style.display = "none";
+            }, 300);
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById("termsModal");
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        // Add event listener when document is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Close modal when radio button is clicked
+            document.getElementById("terms-accept").addEventListener('change', function() {
+                if(this.checked) {
+                    setTimeout(closeModal, 500);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,466 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap");
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", sans-serif;
+  background: white;
+}
+.wrapper {
+  width: 65%;
+  margin: 0 auto 100px auto;
+}
+
+.bgwidth {
+  background-color: #f3f5f7;
+  padding: 40px 40px;
+  border-radius: 8px;
+}
+
+.logo img {
+  width: 120px;
+  height: 120px;
+  margin: 0 0 15px 0;
+}
+
+.job-title {
+  font-size: 30px;
+  font-weight: 600;
+  color: #2e3849;
+  margin: 0 0 8px 0;
+  position: relative;
+  padding-bottom: 5px;
+  display: inline-block;
+}
+
+.job-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #2e3849;
+  border-radius: 2px;
+}
+.calendar {
+  font-family: "Open Sans", sans-serif;
+  border: 2px solid #5a6478;
+  border-radius: 5px;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.calendar-header {
+  background-color: #f0f0f0;
+  color: #2e3849;
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.calendar-body {
+  padding: 20px 15px;
+  text-align: center;
+}
+
+.calendar-day {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.calendar-month-year {
+  font-size: 18px;
+}
+
+span {
+  color: #2e3849;
+}
+
+
+.company {
+  font-size: 18px;
+  font-weight: 400;
+  color: #2e3849;
+  margin: 10px 0 20px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Controls spacing between company name and rating */
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 5px; /* Adds space between stars and text */
+}
+
+.stars {
+  display: flex;
+  align-items: center;
+}
+
+.rating-text {
+  font-size: 16px;
+  color: #2e3849;
+}
+
+.review-link {
+  font-size: 16px;
+  color: #2e3849;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.detail-item,
+.info-container {
+  display: flex;
+  align-items: center; /* Ensures icons and text are vertically centered */
+  gap: 8px; /* Adds spacing between the icon and text */
+}
+
+.info-container {
+  font-size: 16px;
+  color: #2e3849; /* Adjust color as needed */
+}
+
+.dot {
+  margin: 0 8px; /* Adjust space between elements */
+  font-size: 10px; /* Dot size, adjust as needed */
+  display: flex;
+  align-items: center; /* Centers vertically */
+}
+
+.detail-item svg,
+.info-container svg {
+  flex-shrink: 0; /* Prevents SVGs from shrinking */
+  display: inline-block; /* Ensures consistent alignment behavior */
+}
+
+.posted {
+  color: #666666;
+  font-size: 16px;
+  font-weight: 400;
+
+}
+
+.buttons {
+  display: flex;
+  gap: 12px;
+  margin: 0;
+}
+
+
+
+
+.quick-apply {
+  background-color: #d3d3d3; /* Grey background */
+  color: #808080;            /* Grey text */
+  cursor: not-allowed;       /* Disable pointer cursor */
+  pointer-events: none;      /* Disable any interaction with the button */
+  padding: 12px 15px;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+}
+
+
+.quick-apply {
+  background: #d3d3d3;
+  color: #808080;
+  border: none;
+  padding: 12px 15px;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: not-allowed;  
+  display: flex; /* Use flexbox */
+  align-items: center; /* Vertically center items */
+  gap: 5px; /* Add some space between text and SVG */
+}
+
+.quick-apply svg {
+  vertical-align: middle; /* Additional alignment */
+}
+.quick-apply.disabled::before
+{
+  background-color: #b0b0b0; /* Darker grey for the background of the button */
+  transform: rotateX(0deg);   /* Disable the hover animation */
+}
+
+.save {
+  background: #d9eafd;
+  color: #1e48aa;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.job-content h2 {
+  color: #2e3849;
+  font-size: 24px;
+  font-weight: 600;
+  margin: 24px 0 16px;
+}
+
+.job-content h3 {
+  color: #2e3849;
+  font-size: 24px;
+  font-weight: 400;
+  margin: 24px 0 16px;
+}
+
+.job-content p {
+  color: #2e3849;
+  font-size: 17px;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.job-content ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.job-content li {
+  color: #2e3849;
+  font-size: 17px;
+  line-height: 1.6;
+  margin-bottom: 8px;
+  position: relative;
+  padding-left: 16px;
+}
+
+.job-content li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+}
+
+.job-content .note {
+  color: #2e3849;
+  font-size: 14px;
+  font-style: italic;
+}
+
+
+
+.alert {
+  background-color: #fff9e6; /* Light red background */
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 65%;
+  margin: 30px auto;
+}
+
+.alert__wrapper {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 24px;
+}
+
+.alert__icon {
+  display: flex;
+  align-items: center;
+}
+
+.alert__icon svg {
+  vertical-align: middle; /* Align SVG with text */
+}
+
+.alert__message {
+  color: #856404; /* Dark red text */
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 18px;
+  margin: 0;
+  font-weight: 600;
+}
+
+.alert__link {
+  color: #856404; /* Dark red link */
+  text-decoration: underline;
+}
+
+.alert__dismiss {
+  color: #856404; /* Dark red dismiss button */
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 0;
+  margin-left: 16px;
+}
+
+.alert__dismiss:hover {
+  opacity: 0.7;
+}
+
+
+.alert-sign-in {
+  text-decoration: none; /* Removes the underline */
+  color: #0000EE;       /* Sets the link color */
+}
+
+.alert-sign-in:hover {
+  text-decoration: underline; /* Optional: Adds underline on hover */
+}
+
+
+@media (max-width: 480px) {
+  .wrapper {
+    width: 90%;
+    margin: 0 auto 50px auto;
+  }
+
+  .bgwidth {
+    padding: 20px;
+    border-radius: 4px;
+  }
+
+  .logo img {
+    width: 80px;
+    height: 80px;
+    margin: 0 0 10px 0;
+  }
+
+  .job-title {
+    font-size: 24px;
+    margin: 0 0 6px 0;
+  }
+
+  .company {
+    font-size: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    margin: 8px 0 15px 0;
+  }
+
+  .rating {
+    flex-wrap: wrap;
+    gap: 3px;
+  }
+
+  .rating-text {
+    font-size: 14px;
+  }
+
+  .review-link {
+    font-size: 14px;
+  }
+
+  .details {
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .detail-item,
+  .info-container {
+    gap: 6px;
+  }
+
+  .info-container {
+    font-size: 14px;
+  }
+
+  .dot {
+    margin: 0 6px;
+    font-size: 8px;
+  }
+
+  .posted {
+    font-size: 14px;
+  }
+
+  .buttons {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .quick-apply,
+  .save {
+    width: 100%;
+    justify-content: center;
+    padding: 12px;
+    font-size: 15px;
+  }
+
+  .job-content {
+    margin-top: 20px;
+  }
+
+  .job-content h2 {
+    font-size: 20px;
+    margin: 20px 0 12px;
+  }
+
+  .job-content h3 {
+    font-size: 20px;
+    margin: 20px 0 12px;
+  }
+
+  .job-content p,
+  .job-content li {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .job-content .note {
+    font-size: 13px;
+  }
+
+  .calendar {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .calendar-header {
+    padding: 8px;
+  }
+
+  .calendar-body {
+    padding: 15px 10px;
+  }
+
+  .calendar-day {
+    font-size: 36px;
+    margin-bottom: 8px;
+  }
+
+  .calendar-month-year {
+    font-size: 16px;
+  }
+
+  .alert {
+    width: 90%;
+    margin: 20px auto;
+  }
+
+  .alert__wrapper {
+    padding: 15px;
+    gap: 10px;
+  }
+
+  .alert__message {
+    font-size: 14px;
+  }
+
+  .alert__dismiss {
+    font-size: 16px;
+  }
+}

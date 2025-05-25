@@ -1,0 +1,308 @@
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: "Open Sans", sans-serif;
+}
+.container {
+  display: flex;
+  flex-direction: row; /* Changed from column to row */
+  width: 100%;
+  background-color: white;
+}
+
+.image-section {
+  width: 50%; /* Changed from 100% to 50% */
+  height: auto; /* Changed from fixed height */
+  min-height: 610px; /* Added minimum height */
+  background-image: url("pics/12.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  background-color: #f97316;
+}
+
+.form-section {
+  width: 50%; /* Added width */
+  min-height: 610px; /* Added minimum height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.form-container {
+  padding: 0px 80px;
+}
+.image-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.form-container h1 {
+  font-size: 36px;
+  color: #2e3849;
+  font-weight: 600;
+  margin: 0;
+}
+
+.form-container p {
+  font-size: 16px;
+  color: #2e3849;
+}
+
+.divider {
+  display: block;
+  width: 100%;
+  height: 0.5px;
+  background-color: #ddd;
+  margin-bottom: 1.5rem;
+}
+
+.input-norm {
+  margin: 0 0 20px 0;
+}
+
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 16px;
+  border: 2px solid #5a6478;
+  font-size: 16px;
+  border-radius: 4px;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+input::placeholder {
+  color: #4a5a73;
+}
+
+.password-container {
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  top: 30px;
+  right: 15px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #aaa;
+}
+
+.toggle-email {
+  position: absolute;
+  top: 30px;
+  right: 15px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #aaa;
+}
+
+/* Hide the default checkbox */
+/* Flexbox container for alignment */
+.remember-forgot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 0 20px 0;
+  width: 100%; /* Ensures full width alignment */
+}
+
+/* Style the custom checkbox container */
+.custom-checkbox {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  color: #2e3849;
+}
+
+/* Hide default checkbox */
+.custom-checkbox input[type="checkbox"] {
+  display: none;
+}
+
+/* Base style for the custom checkbox */
+.custom-checkbox .checkmark {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #5a6478; /* Default border color */
+  border-radius: 3px; /* Optional: rounded corners */
+  margin-right: 5px;
+  position: relative;
+  display: inline-block;
+  transition: all 0.2s ease; /* Smooth transition */
+}
+
+/* Style the checkmark when checked */
+.custom-checkbox input[type="checkbox"]:checked + .checkmark {
+  background-color: #5a6478; /* Background color when checked */
+  border-color: #5a6478; /* Border color when checked */
+}
+
+/* Add a checkmark icon when checked */
+.custom-checkbox input[type="checkbox"]:checked + .checkmark::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 6px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* Forgot Password link styling */
+.forgot-password {
+  color: #4caf50;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+button {
+  width: 100%;
+  padding: 15px;
+  font-size: 18px;
+  background-color: #45a049;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  margin: 0 0 30px 0;
+  font-family: "Open Sans", sans-serif;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.register {
+  text-align: center;
+  margin: 0;
+  color: #2e3849;
+  font-size: 16px;
+}
+
+.register a {
+  color: #0000ee;
+  text-decoration: none;
+}
+
+.register a:hover {
+  text-decoration: underline;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: blue;
+  box-shadow: 0 0 0 0.3rem rgba(0, 123, 255, 0.25);
+  transition: all 0.3s ease;
+}
+
+/* Keep red border for inputs and selects with 'input-error' class even on focus */
+input.input-error:focus,
+select.input-error:focus,
+textarea.input-error:focus {
+  border-color: red;
+  box-shadow: 0 0 0 0.3rem rgba(255, 0, 0, 0.25);
+}
+
+/* Green border for valid inputs and selects */
+input.valid,
+select.valid,
+textarea.valid {
+  border-color: green;
+  box-shadow: none;
+}
+
+/* Red border and text for invalid inputs and selects */
+input.input-error,
+select.input-error,
+textarea.input-error {
+  border-color: red;
+  box-shadow: 0 0 0 0.3rem rgba(255, 0, 0, 0.25);
+}
+
+/* Error Message Styling */
+.error-message {
+  color: red;
+  font-size: 15px; /* Match Step 1 */
+  margin: 8px 0 0 0;
+  display: block;
+  height: 12px; /* Ensures consistent alignment */
+}
+
+@media (max-width: 480px) {
+  .container {
+    flex-direction: column; /* Stack elements vertically on mobile */
+  }
+
+  .image-section {
+    width: 100%; /* Full width on mobile */
+    min-height: 300px; /* Reduced height for mobile */
+  }
+
+  .form-section {
+    width: 100%; /* Full width on mobile */
+    min-height: auto; /* Remove minimum height constraint */
+  }
+
+  .form-container {
+    padding: 20px; /* Reduce padding for mobile */
+
+  }
+
+  .form-container h1 {
+    font-size: 24px; /* Smaller heading for mobile */
+    margin-bottom: 10px;
+  }
+
+  .form-container p {
+    font-size: 14px; /* Slightly smaller text for mobile */
+  }
+
+  input[type="email"],
+  input[type="password"] {
+    padding: 12px; /* Slightly reduce input padding */
+    font-size: 14px; /* Smaller font size for inputs */
+  }
+
+  .remember-forgot {
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  button {
+    padding: 12px; /* Slightly reduce button padding */
+    font-size: 16px; /* Smaller button text */
+  }
+
+  .register {
+    font-size: 14px; /* Smaller registration text */
+  }
+}
+
+
+.login-error-container {
+  color: red;
+  font-size: 15px;
+  margin: -10px 0 15px 0;
+  padding: 0;
+  height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.login-error-container.show {
+  height: auto;
+  padding: 8px 0;
+}

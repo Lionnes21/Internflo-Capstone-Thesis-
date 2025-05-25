@@ -1,0 +1,525 @@
+/* Base styles */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap");
+
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  min-height: 100vh;
+  font-family: "Open Sans", sans-serif;
+}
+
+/* Common styles */
+.profile-stats,
+.social-links,
+.profile-main .profile-nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.profile-main .profile-nav ul li a {
+  text-decoration: none;
+}
+
+hr {
+  margin: 0 0 30px 0;
+  height: 1px;
+  background-color: #e0e0e0;
+  border: none;
+}
+
+/* Container and Header */
+.profile-container {
+  width: 80%;
+  margin: 30px auto;
+}
+
+.profile-header {
+  width: 100%;
+  background: url("pics/bg1.png") no-repeat 50% 20% / cover;
+  min-height: calc(100px + 15vw);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.profile-grid {
+  margin: 0 auto;
+  width: 100%;
+  justify-content: space-between;
+  display: grid;
+  gap: 5%;
+  grid-template-columns: 25% 70%;
+}
+
+/* PROFILE-SIDE */
+.profile-sidebar {
+  padding: 25px 0px;
+  text-align: center;
+  max-width: 100%;
+  position: relative;
+  margin: 0;
+}
+
+.avatar-wrapper {
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translatex(-50%);
+  cursor: pointer;
+}
+
+.avatar-wrapper img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  box-shadow: 1px 3px 12px rgba(0, 0, 0, 0.18);
+  transition: filter 0.3s ease;
+}
+
+.change-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.change-overlay span {
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.avatar-wrapper:hover .change-overlay {
+  opacity: 1;
+}
+
+.avatar-wrapper:hover img {
+  filter: brightness(90%);
+}
+
+.avatar-wrapper .status-indicator {
+  position: absolute;
+  background: #2afa6a;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  bottom: 3px;
+  right: 11px;
+  border: 2px solid #fff;
+}
+
+.status-badge {
+  margin: 50px auto 0 auto;
+  padding: 8px 20px;
+  border-radius: 25px;
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  font-weight: 600;
+}
+
+.status-verified {
+  color: #1e40af;
+  background-color: #dbeafe;
+}
+
+.status-applying {
+  color: #856404;
+  background-color: #fff9e6;
+}
+
+.status-for-interview {
+  color: #7c2d12;
+  background-color: #ffedd5;
+}
+
+.status-hired {
+  color: #166534;
+  background-color: #dcfce7;
+}
+
+.status-not-verified {
+  color: #991b1b;
+  background-color: #fee2e2;
+}
+
+.profile-sidebar h2 {
+  margin-top: 15px;
+  font-weight: 600;
+  font-size: 22px;
+  margin-bottom: 5px;
+  color: #171717;
+}
+
+.profile-sidebar p {
+  font-size: 0.9rem;
+  color: #666666;
+  margin: 0;
+}
+
+.profile-stats {
+  justify-content: space-between;
+  position: relative;
+  margin: 35px;
+}
+
+.profile-stats li {
+  display: flex;
+  flex-direction: column;
+  color: #666666;
+  font-size: 0.9rem;
+}
+
+.profile-stats li span {
+  color: #171717;
+  font-weight: 600;
+}
+
+.profile-bio p {
+  font-size: 1rem;
+  color: #2e3849;
+  line-height: 1.8em;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.social-links {
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+}
+
+.social-links li {
+  display: flex;
+}
+
+.social-links i {
+  font-size: 1.3rem;
+}
+
+/* PROFILE-MAIN */
+.profile-main {
+  width: 100%;
+}
+
+.profile-main .profile-nav {
+  display: flex;
+  align-items: center;
+  margin: 40px 20px 30px 20px;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.profile-main .profile-nav ul {
+  display: flex;
+  gap: 30px;
+  flex-direction: row;
+  font-size: 20px;
+}
+
+.profile-main .profile-nav ul li a {
+  text-transform: uppercase;
+  color: #666666;
+}
+
+.profile-main .profile-nav ul li:nth-child(1) a {
+  color: #171717;
+  font-weight: 600;
+  padding-bottom: 5px;
+  display: inline-block;
+  border-bottom: 2px solid #171717;
+}
+
+.profile-main .label {
+  font-size: 24px;
+  font-weight: 600;
+  color: #171717;
+  line-height: 1.4;
+  margin: 0 20px 10px 20px;
+}
+
+.profile-main .sub-label {
+  font-size: 18px;
+  font-weight: 500;
+  color: #666666;
+  line-height: 1.4;
+  margin: 0 20px 5px 20px;
+}
+
+.job-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  justify-content: start;
+  margin: 0 auto;
+  max-height: 570px;
+  overflow-y: scroll;
+  padding: 20px;
+  scroll-behavior: smooth;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.job-grid::-webkit-scrollbar {
+  display: none;
+}
+
+.job-card {
+  height: auto;
+  min-height: 240px;
+  background: white;
+  border-radius: 12px;
+  padding: 20px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: 3px solid #e0e0e0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+  cursor: pointer;
+  gap: 12px;
+}
+
+.company-logo {
+  width: 75px;
+  height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.company-logo img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.company-name {
+  font-size: 17px;
+  font-weight: 600;
+  color: #171717;
+  line-height: 1.4;
+  text-align: center;
+  margin: 0;
+  width: 100%;
+}
+
+.job-title {
+  color: #2e3849;
+  font-size: 15px;
+  font-weight: 500;
+  margin: 0;
+  width: 100%;
+}
+
+.applicant-count {
+  font-size: 14px;
+  color: #2e3849;
+  background: #f5f5f5;
+  padding: 8px 16px;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  margin: 0;
+}
+
+.applicant-count span {
+  font-size: 13px;
+  color: #666;
+}
+
+.no-apply {
+  grid-column: 1 / -1;
+  text-align: center;
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 4px;
+  color: #171717;
+  font-weight: 600;
+}
+
+/* Responsive styles for 1100px */
+@media (max-width: 1100px) {
+  .profile-container {
+    width: 90%; /* Increase container width for medium screens */
+  }
+
+  .profile-grid {
+    grid-template-columns: 100%; /* Stack sidebar and main content vertically */
+    gap: 20px; /* Reduce gap between sections */
+  }
+
+  .profile-sidebar {
+    padding: 20px 0; /* Adjust padding */
+  }
+
+  .avatar-wrapper {
+    top: -50px; /* Adjust avatar position */
+  }
+
+  .avatar-wrapper img {
+    width: 100px; /* Reduce avatar size */
+    height: 100px;
+  }
+
+  .profile-sidebar h2 {
+    font-size: 20px; /* Reduce heading size */
+  }
+
+  .profile-sidebar p {
+    font-size: 0.8rem; /* Reduce paragraph size */
+  }
+
+  .profile-stats {
+    margin: 25px; /* Adjust margin */
+  }
+
+  .profile-main .profile-nav {
+    margin: 30px 15px 20px 15px; /* Adjust margin */
+  }
+
+  .profile-main .profile-nav ul {
+    gap: 20px; /* Reduce gap between nav items */
+    font-size: 18px; /* Reduce font size */
+  }
+
+  .profile-main .label {
+    font-size: 22px; /* Reduce heading size */
+  }
+
+  .profile-main .sub-label {
+    font-size: 16px; /* Reduce sub-heading size */
+  }
+
+  .job-grid {
+    grid-template-columns: repeat(2, 1fr); /* Two columns for medium screens */
+  }
+
+  .job-card {
+    padding: 15px 20px; /* Adjust padding */
+  }
+
+  .company-logo {
+    width: 60px; /* Reduce logo size */
+    height: 60px;
+  }
+
+  .company-name {
+    font-size: 16px; /* Reduce font size */
+  }
+
+  .job-title {
+    font-size: 14px; /* Reduce font size */
+  }
+
+  .applicant-count {
+    font-size: 13px; /* Reduce font size */
+    padding: 6px 12px; /* Adjust padding */
+  }
+}
+
+/* Responsive styles for 560px */
+@media (max-width: 560px) {
+  .profile-container {
+    width: 95%; /* Increase container width for small screens */
+  }
+
+  .profile-header {
+    min-height: calc(80px + 10vw); /* Adjust header height */
+  }
+
+  .avatar-wrapper img {
+    width: 80px; /* Further reduce avatar size */
+    height: 80px;
+  }
+
+  .profile-sidebar h2 {
+    font-size: 18px; /* Further reduce heading size */
+  }
+
+  .profile-sidebar p {
+    font-size: 0.75rem; /* Further reduce paragraph size */
+  }
+
+  .profile-stats {
+    width: 60%;
+    margin: 20px auto; /* Adjust margin and width */
+  }
+
+  .profile-bio {
+    width: 60%;
+    margin: 0 auto; /* Adjust width and margin */
+  }
+
+  hr {
+    width: 60%;
+    margin: 0 auto 30px auto; /* Adjust width and margin */
+  }
+
+  .profile-main .profile-nav {
+    gap: 15px; /* Reduce gap between items */
+    margin: 20px 10px 15px 10px; /* Adjust margin */
+  }
+
+  .profile-main .profile-nav ul {
+    gap: 15px; /* Reduce gap between nav items */
+    font-size: 16px; /* Further reduce font size */
+  }
+
+  .profile-main .label {
+    font-size: 20px; /* Further reduce heading size */
+  }
+
+  .profile-main .sub-label {
+    font-size: 14px; /* Further reduce sub-heading size */
+  }
+
+  .job-grid {
+    grid-template-columns: 1fr; /* Single column for small screens */
+  }
+
+  .job-card {
+    padding: 10px 15px; /* Adjust padding */
+  }
+
+  .company-logo {
+    width: 50px; /* Further reduce logo size */
+    height: 50px;
+  }
+
+  .company-name {
+    font-size: 15px; /* Further reduce font size */
+  }
+
+  .job-title {
+    font-size: 13px; /* Further reduce font size */
+  }
+
+  .applicant-count {
+    font-size: 12px; /* Further reduce font size */
+    padding: 5px 10px; /* Adjust padding */
+  }
+}

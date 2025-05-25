@@ -1,0 +1,242 @@
+body {
+    font-family: 'Open-sans', sans-serif;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+    background-color: #f0f2f5;
+}
+
+.form-container {
+    flex: 0 0 30%;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: fit-content;
+    position: sticky;
+    top: 20px;
+}
+
+.preview-container {
+    flex: 0 0 816px;
+    padding: 20px;
+    background: #f0f2f5;
+    border-radius: 8px;
+}
+
+.preview-content {
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.page {
+    width: 816px;
+    min-height: 1056px;
+    padding: 48px;
+    background: white;
+    margin: 0 auto 20px;
+    box-sizing: border-box;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.page2 {
+    width: 816px;
+    min-height: 1156px;
+    padding: 48px;
+    background: white;
+    margin: 0 auto 20px;
+    box-sizing: border-box;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Remove any potential conflicting styles */
+.page:first-child,
+.page:last-child {
+    margin: 0 auto 20px;
+}
+
+.form-group {
+    margin-bottom: 10px;
+    margin-right: 40px;
+}
+
+label {
+    display: block;
+    margin-bottom: 3px;
+    color: #333;
+}
+
+input, select {
+    width: 90%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);
+}
+
+button {
+    background: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+button:hover {
+    background: #45a049;
+}
+
+
+.text-block {
+    margin-right: 48px; 
+    text-align: justify;
+}
+
+.indent {
+    padding-left: 48px; 
+}
+
+.witness-entry {
+    margin-bottom: 15px;
+    padding: 8px;
+    border-radius: 6px;
+}
+
+.page-break {
+    page-break-before: always;
+    margin-top: 20px;
+}
+
+.signatures {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    padding: 0 48px; /* 1.27cm padding on both sides */
+}
+
+.signature-block {
+    text-align: center;
+    width: 45%;
+}
+
+ol {
+    margin-left: 48px; 
+    padding-right: 48px; 
+}
+
+li {
+    margin-bottom: 10px;
+    text-align: justify;
+}
+
+     @media print {
+        .page {
+            margin: 0;
+            border: none;
+        }
+    }
+
+.student-entry, .witness-entry {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    position: relative;
+}
+
+.remove-btn {
+    background: #dc3545;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 12px;
+}
+
+.remove-btn:hover {
+    background: #c82333;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .form-container {
+        flex: none;
+        width: 90%;
+        position: static;
+        padding: 15px;
+        margin-bottom: 10px;
+    }
+    .form-group{
+        width: 90%;
+    }
+
+    .preview-container {
+        flex: none;
+        width: 90%;
+        padding: 15px;
+    }
+
+    .page, .page2 {
+        width: 100%;
+        min-height: auto;
+        padding: 20px;
+        margin: 0 0 15px 0;
+    }
+
+    .form-group {
+        margin-right: 0;
+    }
+
+    input, select {
+        width: 100%;
+    }
+
+    .signatures {
+        flex-direction: column;
+        gap: 20px;
+        padding: 0 20px;
+    }
+
+    .signature-block {
+        width: 100%;
+    }
+
+    .text-block {
+        margin-right: 20px;
+    }
+
+    .indent {
+        padding-left: 20px;
+    }
+
+    ol {
+        margin-left: 20px;
+        padding-right: 20px;
+    }
+
+    button {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    .remove-btn {
+        width: auto;
+        margin-top: 5px;
+    }
+}

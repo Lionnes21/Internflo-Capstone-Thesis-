@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Quiz</title>
+    <script src="assessmenthtml.js"></script>
+    <link rel="stylesheet" href="assessment.css">
+</head>
+<body>
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Internship Assessment</title>
+    </head>
+    <body>
+        <button class="start-quiz-btn" onclick="openQuiz()">Start Quiz</button>
+
+
+        <div class="modal-overlay" id="quizModal">
+        <div class="quiz-container">
+                <h1>INTERNSHIP ASSESSMENT</h1>
+                
+                <div class="progress-bar">
+                    <div class="progress" id="progress"></div>
+                </div>
+                
+                <div id="banner-container"></div>
+                
+                <div class="question" id="question-container">
+                    <h2 id="question-text"></h2>
+                    <div class="options" id="options-container">
+                    </div>
+                </div>
+                <button type="button" class="submit-btn" onclick="nextQuestion()">Submit Answer</button>
+            </div>
+        </div>
+            
+<SCRipt>
+
+function openQuiz() {
+    document.getElementById('quizModal').classList.add('active');
+}
+
+// Optional: Close when clicking outside the quiz
+document.getElementById('quizModal').addEventListener('click', function(e) {
+    if (e.target === this) {
+        this.classList.remove('active');
+    }
+});
+    let currentQuestion = 0;
+let selectedOption = null;
+let timer;
+let timeLeft = 20;
+const TIME_PER_QUESTION = 20;
+let scores = {
+    basic: 0,
+    intermediate: 0,
+    advanced: 0,
+    total: 0
+};
+const TIMER_DURATIONS = {
+    basic: 20,
+    intermediate: 40,
+    advanced: 70
+};
+
+currentQuestionData.options.forEach((option, index) => {
+    const button = document.createElement('button');
+    button.className = 'option';
+    button.innerHTML = `
+        <span class="radio-icon">
+            <span class="radio-unselected">${unselectedRadioSVG}</span>
+            <span class="radio-selected">${selectedRadioSVG}</span>
+        </span>
+        <span class="option-text">${option}</span>
+    `;
+    button.onclick = () => selectOption(index);
+    optionsContainer.appendChild(button);
+});
+// Combine all question sets
+const allQuestions = [...htmlQuestions, ...cssQuestions, ...javascriptQuestions, ...intermediateJavaScriptQuestions, ...advancedJavaScriptQuestions];
+
+function calculateCurrentSection() {
+    const basicQuestionsLength = htmlQuestions.length + cssQuestions.length + javascriptQuestions.length;
+    const intermediateQuestionsLength = basicQuestionsLength + intermediateJavaScriptQuestions.length;
+    
+    if (currentQuestion < basicQuestionsLength) {
+        return 'basic';
+    } else if (currentQuestion < intermediateQuestionsLength) {
+        return 'intermediate';
+    } else {
+        return 'advanced';
+    }
+}
+
+function createBanner() {
+    const bannerContainer = document.getElementById('banner-container');
+    bannerContainer.innerHTML = '';
+    
+    const bannerWrapper = document.createElement('div');
+    bannerWrapper.className = 'banner-wrapper';
+    
+    const banner = document.createElement('div');
+    banner.className = 'banner';
+    banner.id = 'question-banner';
+    
+    const section = calculateCurrentSection();
+    
+    switch(section) {
+        case 'basic':
+            banner.textContent = 'BASIC';
+            banner.style.backgroundColor = '#e6f9e6';
+            banner.style.borderColor = '#b3e6b3';
+            banner.style.color = '#155724';
+            break;
+        case 'intermediate':
+            banner.textContent = 'INTERMEDIATE';
+            banner.style.backgroundColor = '#fff9e6';
+            banner.style.borderColor = '#ffeeba';
+            banner.style.color = '#856404';
+            break;
+        case 'advanced':
+            banner.textContent = 'ADVANCED';
+            banner.style.backgroundColor = '#ffe6e6';
+            banner.style.borderColor = '#ffb3b3';
+            banner.style.color = '#721c24';
+            break;
+    }
+    
+    bannerWrapper.appendChild(banner);
+    bannerContainer.appendChild(bannerWrapper);
+}
+
+function checkAnswer() {
+    const currentQuestionData = allQuestions[currentQuestion];
+    const section = calculateCurrentSection();
+    
+    if (currentQuestionData.code) {
+        const userCode = document.querySelector('.code-editor').value.trim();
+        const isCorrect = userCode === currentQuestionData.correct.trim();
+        if (isCorrect) {
+            scores[section]++;
+            scores.total++;
+        }
+    } else {
+        if (selectedOption === currentQuestionData.correct) {
+            scores[section]++;
+            scores.total++;
+        }
+    }
+}
+
+function showResults() {
+    const basicTotal = htmlQuestions.length + cssQuestions.length + javascriptQuestions.length;
+    const intermediateTotal = intermediateJavaScriptQuestions.length;
+    const advancedTotal = advancedJavaScriptQuestions.length;
+    
+    const message = `Quiz Completed!\n\n` +
+        `Basic: ${scores.basic}/${basicTotal} (${((scores.basic/basicTotal) * 100).toFixed(1)}%)\n` +
+        `Intermediate: ${scores.intermediate}/${intermediateTotal} (${((scores.intermediate/intermediateTotal) * 100).toFixed(1)}%)\n` +
+        `Advanced: ${scores.advanced}/${advancedTotal} (${((scores.advanced/advancedTotal) * 100).toFixed(1)}%)\n\n` +
+        `Total Score: ${scores.total}/${allQuestions.length} (${((scores.total/allQuestions.length) * 100).toFixed(1)}%)`;
+    
+    alert(message);
+    location.reload(); // Reload the page to restart the quiz
+}
+
+function startTimer() {
+    clearInterval(timer);
+    
+    // Set time based on current section
+    const section = calculateCurrentSection();
+    timeLeft = TIMER_DURATIONS[section];
+    
+    if (!document.getElementById('timer')) {
+        const timerDiv = document.createElement('div');
+        timerDiv.id = 'timer';
+        timerDiv.className = 'timer';
+        document.getElementById('question-container').insertBefore(timerDiv, document.getElementById('question-text'));
+    }
+    
+    updateTimerDisplay();
+    
+    timer = setInterval(() => {
+        timeLeft--;
+        updateTimerDisplay();
+        
+        if (timeLeft <= 0) {
+            clearInterval(timer);
+            checkAnswer();
+            nextQuestion();
+        }
+    }, 1000);
+}
+
+function updateTimerDisplay() {
+    const timerDiv = document.getElementById('timer');
+    timerDiv.textContent = `Time remaining: ${timeLeft}s`;
+    
+    // Calculate warning thresholds based on total time for current section
+    const section = calculateCurrentSection();
+    const totalTime = TIMER_DURATIONS[section];
+    const warningThreshold = Math.floor(totalTime * 0.25); // 25% of total time
+    const cautionThreshold = Math.floor(totalTime * 0.5); // 50% of total time
+    
+    if (timeLeft <= warningThreshold) {
+        timerDiv.style.color = '#dc3545'; // Red
+    } else if (timeLeft <= cautionThreshold) {
+        timerDiv.style.color = '#ffc107'; // Yellow
+    } else {
+        timerDiv.style.color = '#0056b3'; // Blue
+    }
+}
+
+function showQuestion() {
+    const questionContainer = document.getElementById('question-text');
+    const optionsContainer = document.getElementById('options-container');
+    const progressBar = document.getElementById('progress');
+    
+    const progressPercentage = ((currentQuestion + 1) / allQuestions.length) * 100;
+    progressBar.style.width = `${progressPercentage}%`;
+    
+    createBanner();
+    
+    const currentQuestionData = allQuestions[currentQuestion];
+    questionContainer.textContent = currentQuestionData.question;
+    
+    optionsContainer.innerHTML = '';
+    
+    if (currentQuestionData.code) {
+        const codeEditor = document.createElement('textarea');
+        codeEditor.className = 'code-editor';
+        codeEditor.value = currentQuestionData.code;
+        optionsContainer.appendChild(codeEditor);
+    } else {
+        currentQuestionData.options.forEach((option, index) => {
+            const button = document.createElement('button');
+            button.className = 'option';
+            button.innerHTML = `
+                <span class="radio-icon">
+                    <span class="radio-unselected">${unselectedRadioSVG}</span>
+                    <span class="radio-selected">${selectedRadioSVG}</span>
+                </span>
+                ${option}
+            `;
+            button.onclick = () => selectOption(index);
+            optionsContainer.appendChild(button);
+        });
+    }
+    
+    startTimer();
+}
+
+function selectOption(index) {
+    selectedOption = index;
+    const options = document.querySelectorAll('.option');
+    options.forEach((option, i) => {
+        option.classList.toggle('selected', i === index);
+    });
+}
+
+function nextQuestion() {
+    clearInterval(timer);
+    
+    if (currentQuestion < allQuestions.length - 1) {
+        checkAnswer();
+        currentQuestion++;
+        selectedOption = null;
+        showQuestion();
+    } else {
+        checkAnswer();
+        clearInterval(timer);
+        showResults();
+    }
+}
+
+// Initialize the quiz when the page loads
+window.onload = function() {
+    createBanner();
+    showQuestion();
+};
+</SCRipt>
+
+    </body>
+    </html>

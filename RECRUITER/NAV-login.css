@@ -1,0 +1,434 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+/* Navigation container */
+
+body {
+  margin: 0;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  padding: 0;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Keeps logo on the left and nav/auth buttons on the right */
+  padding: 20px 65px;
+  background-color: #ffffff;
+  color: black;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  flex-wrap: nowrap; /* Prevent wrapping of elements */
+  position: sticky; /* Make the navbar stick */
+  top: 0; /* Stick to the top of the viewport */
+  z-index: 3000; /* Ensure the navbar stays above other content */
+  border-bottom: 5px solid #e77d33;
+}
+.navbar {
+  transition: opacity 0.5s ease-in-out; /* Smooth transition for visibility */
+}
+
+/* Updated nav-links to align items horizontally */
+.navbar .nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Align items to the right */
+  flex-grow: 1; /* Allow it to take up remaining space */
+}
+
+/* Navigation links */
+.navbar .nav-links a {
+  font-family: "Open Sans", sans-serif;
+  color: #2e3849; /* Text color */
+  text-decoration: none; /* No underline by default */
+  padding: 10px 20px;
+  font-size: 16px;
+  border-bottom: 2px solid transparent; /* Invisible border initially */
+  transition: border-bottom 0.5s, color 0.5s; /* Smooth transition for underline effect and color */
+  display: flex; /* Use flexbox for vertical alignment */
+  align-items: center; /* Center text vertically */
+}
+
+/* Hover effect for nav links */
+.navbar .nav-links a:hover {
+  color: #e77d33;
+}
+
+.navbar .nav-links .login-btn {
+  font-family: "Open Sans", sans-serif;
+  background-color: #529f37; /* Green background */
+  color: white; /* White text */
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  text-decoration: none;
+  display: inline-flex; /* Changed to inline-flex for better alignment */
+  align-items: center; /* Center text vertically */
+  margin-left: 15px; /* Add some space between the last nav link and the login button */
+}
+
+.navbar .nav-links .login-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #449e25;
+  transform: rotateX(0deg);
+  transform-origin: top;
+  transition: transform 0.5s ease;
+  z-index: -1;
+}
+
+.navbar .nav-links .login-btn:hover::before {
+  transform: rotateX(90deg);
+}
+
+.navbar .nav-links .login-btn:hover {
+  color: white; /* Keep text white on hover */
+}
+
+.navbar .nav-links .employer-btn {
+  font-family: "Open Sans", sans-serif;
+  background-color: white;
+  color: #449e25;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  border: 2px solid #449e25;
+  margin: 0 0 0 10px;
+  transition: background-color 0.3s ease; /* Only transition the background color */
+}
+
+/* Add hover state */
+.navbar .nav-links .employer-btn:hover {
+  background-color: rgba(
+    71,
+    136,
+    49,
+    0.1
+  ); /* Slight background tint on hover */
+  color: #449e25; /* Keep the same text color */
+}
+
+/* Logo and text container */
+.navbar .logo-container {
+  display: flex;
+  align-items: center;
+}
+
+/* Logo */
+.navbar .logo-container img {
+  width: 280px; /* Adjusted size for both desktop and mobile */
+}
+
+/* Menu Toggle Button */
+.menu-toggle {
+  display: none; /* Hide by default */
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #fd6f41; /* Match the button color to your theme */
+  margin-left: 20px; /* Space between the logo and button */
+}
+
+.auth-buttons {
+  display: flex;
+  align-items: center;
+}
+
+/* Media Query for Mobile Devices */
+/* Media Query for Mobile Devices */
+@media (max-width: 1100px) {
+  .navbar {
+    padding: 15px 30px;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .navbar .nav-links .employer-btn {
+    margin: 10px 0 0 0;
+  }
+
+  /* Container for menu toggle and logo */
+  .logo-container {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    width: auto;
+  }
+
+  .menu-toggle {
+    display: block;
+    padding: 0;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #fd6f41;
+    margin: 0;
+    flex: 0 0 auto;
+  }
+
+  .navbar .logo-container img {
+    margin: 0 0 0 10px;
+    width: 240px;
+  }
+
+  /* Auth buttons container */
+  .auth-buttons {
+    flex: 0 0 auto;
+  }
+
+  /* Hide email in mobile view */
+  .greeting-text {
+    display: none;
+  }
+
+  /* Adjust dropdown button size for mobile */
+  .navbar .dropdown-container .dropdown-btn {
+    width: 30px;
+    height: 30px;
+  }
+
+  /* Navigation links */
+  .navbar .nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.5s ease, max-height 0.5s ease;
+    position: absolute;
+    top: calc(100% - 5px); /* Adjust for the border-bottom width */
+    left: 0;
+    background: white;
+    border-bottom: 5px solid #e77d33;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .navbar.active .nav-links {
+    opacity: 1;
+    max-height: 500px;
+    margin: 0;
+  }
+
+  .navbar .nav-links a {
+    font-size: 16px;
+    padding: 8px 30px;
+    text-align: left;
+    width: 100%;
+  }
+
+  .navbar .nav-links .login-btn {
+    margin-top: 10px;
+    margin-left: 0;
+    width: fit-content;
+  }
+
+  /* Adjust dropdown container for mobile */
+  .dropdown-container {
+    display: flex;
+    align-items: center;
+  }
+
+  /* Adjust border container spacing */
+  .border {
+    padding: 1px;
+    margin: 0;
+  }
+}
+
+/* Mobile devices (560px and below) */
+/* Previous 1100px breakpoint remains the same */
+
+/* Mobile devices (560px and below) */
+@media (max-width: 560px) {
+  .navbar {
+    padding: 15px 20px; /* Reduced padding for smaller screens */
+  }
+
+  .navbar .logo-container img {
+    width: 220px; /* Smaller logo for mobile */
+    margin-left: 10px;
+  }
+
+  .menu-toggle {
+    font-size: 25px; /* Slightly smaller menu icon */
+  }
+
+  /* Adjust profile picture size for smaller screens */
+  .navbar .dropdown-container .dropdown-btn {
+    width: 25px;
+    height: 25px;
+  }
+
+  /* Keep the three-column layout but with smaller sizes */
+  .logo-container {
+    flex: 1;
+  }
+
+  /* Navigation links adjustments */
+  .navbar .nav-links {
+    border-bottom: 3px solid #e77d33;
+  }
+
+  .navbar .nav-links a {
+    font-size: 14px;
+    padding: 6px 20px;
+  }
+
+  /* Maintain the hidden email */
+  .greeting-text {
+    display: none;
+  }
+
+  /* Adjust dropdown spacing */
+  .border {
+    padding: 0;
+  }
+
+  /* Adjust shadow and border */
+  .navbar {
+    border-bottom: 3px solid #e77d33;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Ensure dropdown content is properly sized */
+  .dropdown-content {
+    min-width: 160px;
+    right: 0;
+  }
+
+  /* Adjust auth buttons container */
+  .auth-buttons {
+    margin-left: 5px;
+  }
+}
+
+.dropdown-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+/* Border Container */
+.border {
+  display: flex;
+  align-items: center;
+  margin: 0 0 0 10px;
+}
+.notif {
+  cursor: pointer;
+  border: 1px solid#464349;
+  border-radius: 50%; /* Make the border circular */
+  padding: 10px; /* Space between border and content */
+  background-color: #f9f9f9; /* Optional background color */
+  display: inline-flex; /* Align items horizontally */
+  align-items: center; /* Center content vertically */
+  justify-content: center; /* Center content horizontally */
+  width: 45px; /* Set width */
+  height: 45px; /* Set height */
+  box-sizing: border-box; /* Include border in element's size */
+}
+
+/* Greeting Text */
+.greeting-text {
+  font-family: "Open Sans", sans-serif;
+  margin: 0 10px 0 0;
+  font-size: 16px;
+  color: #2e3849;
+  font-weight: 600;
+  border-bottom: 2px solid #2e3849; /* Added bottom border matching text color */
+  padding-bottom: 3px; /* Added padding to create space between text and border */
+}
+
+/* Dropdown Button */
+.dropdown-btn {
+  box-sizing: content-box;
+  border-radius: 50%; /* Make the button a circle */
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  overflow: hidden; /* Ensures image fits within the circle */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 2px;
+  border: 2px solid #449e25; /* Add border here - you can change color and thickness */
+}
+
+.dropdown-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the circle without distortion */
+  border-radius: 50%; /* Make sure the image itself is also circular */
+}
+
+/* Dropdown Content */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 180px;
+  border-radius: 8px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  right: 0;
+  top: 100%;
+  margin-top: 10px;
+}
+
+.dropdown-content .user-fullname {
+  font-family: "Open Sans", sans-serif;
+  padding: 12px 16px;
+  color: #464349;
+  font-weight: 500;
+}
+
+.dropdown-content a {
+  font-family: "Open Sans", sans-serif;
+  color: #464349;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  border-left: 3px solid transparent; /* Invisible border initially */
+  transition: border-left 0.3s, color 0.3s, background-color 0.3s; /* Smooth transition */
+}
+
+.dropdown-content a:hover {
+  color: #e77d33;
+  background-color: rgba(231, 125, 51, 0.05); /* Very light orange background */
+  border-left: 3px solid #e77d33; /* Orange border on hover */
+}
+
+/* Style for the horizontal line */
+.dropdown-content hr {
+  border: none;
+  height: 1px;
+  background-color: #e0e0e0;
+  width: 90%;
+}
+
+/* Optional: Add a subtle transition when the dropdown appears */
+.dropdown:hover .dropdown-content {
+  display: block;
+  animation: fadeIn 0.2s ease-in-out;
+}
+.user-email {
+  color: #434649;
+  padding: 10px;
+}

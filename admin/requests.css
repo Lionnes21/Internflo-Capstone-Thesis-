@@ -1,0 +1,338 @@
+/* Modal styles */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1000; /* Sit on top */
+  left: 0;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: 2% auto;
+  padding: 20px 40px;
+  width: 60%;
+  border: 1px solid #888;
+  border-radius: 5px;
+  position: relative;
+}
+
+.modal-content2 {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 20px 40px;
+  width: 60%;
+  border: 1px solid #888;
+  border-radius: 5px;
+  position: relative;
+}
+
+/* Adjust modal message appearance */
+#feedbackMessage {
+  margin-top: 0;
+  word-wrap: break-word; /* Ensures text wraps */
+  overflow-wrap: break-word; /* Additional support for text wrapping */
+  max-width: 100%; /* Ensures content doesn't exceed modal width */
+}
+
+/* Add this if your modal has any paragraphs */
+.modal-content p {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+}
+
+/* Close button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Adjust modal message appearance */
+#feedbackMessage {
+  margin-top: 0;
+}
+
+/* Styling for recruiter details */
+p {
+  font-size: 16px;
+  color: #2e3849;
+  margin: 8px 0; /* Spacing between paragraphs */
+}
+
+/* Styling for strong text */
+strong {
+  font-weight: bold;
+  color: #2e3849; /* Makes strong text stand out */
+}
+
+/* Styling for the list of documents */
+
+ul li {
+  font-size: 16px;
+  color: #2e3849;
+  margin: 5px 0; /* Space between list items */
+}
+
+ul li a {
+  color: #4caf50; /* Adds the same green for links */
+}
+
+.circular-logo {
+  width: 100px; /* Set a fixed width */
+  height: 100px; /* Set a fixed height to make it a square */
+  border-radius: 50%; /* Makes the image circular */
+  object-fit: cover; /* Ensures the image is scaled without distortion */
+  display: block; /* Centers the image */
+  margin: auto; /* Centers the image horizontally */
+  border: 2px solid #ccc; /* Optional: Adds a border for a polished look */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Adds a shadow */
+}
+
+/* Style for the forward form */
+
+.forward-form h2 {
+  margin-bottom: 15px;
+}
+
+.forward-form div {
+  margin-bottom: 10px;
+}
+
+.forward-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.forward-form input[type="file"],
+.forward-form select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.forward-form button {
+  padding: 8px 15px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.forward-form button[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+}
+
+.forward-form button[type="button"] {
+  background-color: #f44336;
+  color: white;
+}
+.action-buttons {
+  display: flex;
+  gap: 10px; /* Space between buttons */
+  align-items: center; /* Vertically align the buttons */
+}
+
+.delete-btn {
+  background-color: #f44336;
+  color: white;
+  padding: 8px 15px 10px 15px;
+  border: none; /* Remove default border */
+  border-radius: 5px; /* Optional: Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+.view-btn {
+  background-color: #4caf50;
+  color: white;
+  padding: 8px 15px 10px 15px;
+  border: none; /* Remove default border */
+  border-radius: 5px; /* Optional: Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+.view-btn:hover {
+  background-color: #388e3c;
+}
+
+.forward-btn {
+  background-color: #4caf50;
+  color: white;
+  padding: 8px 15px 10px 15px;
+  border: none; /* Remove default border */
+  border-radius: 5px; /* Optional: Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+.forward-btn:hover {
+  background-color: #388e3c;
+}
+
+/* Add hover effects for better UX */
+.delete-btn:hover {
+  background-color: #d32f2f;
+}
+
+h1.company-name {
+  font-size: 50px;
+  font-weight: 600;
+  margin: 0;
+  color: #2e3849;
+  text-align: center; /* Aligns text in the center */
+}
+
+/* Styling for the company details */
+p.company-details {
+  font-size: 16px;
+  color: #666666; /* A subtle gray for details */
+  margin: 5px 0; /* Spacing between paragraphs */
+  text-align: center; /* Aligns text in the center */
+}
+
+/* Styling for the section title */
+h2.company-title {
+  font-size: 28px;
+  font-weight: 600;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  color: #2e3849; /* Slightly darker gray for titles */
+}
+
+/* Additional styles for the forward form */
+.forward-form {
+  padding: 20px 20px 0 20px;
+}
+
+.forward-form h2 {
+  margin-bottom: 15px;
+  font-weight: 600;
+  color: #171717;
+}
+
+.forward-form div {
+  margin-bottom: 20px;
+}
+
+.forward-form label {
+  display: block;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.forward-form input[type="text"],
+.forward-form input[type="file"],
+.forward-form select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.forward-form button {
+  padding: 8px 15px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.forward-form button[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+}
+
+.forward-form button[type="button"] {
+  background-color: #f44336;
+  color: white;
+}
+
+.document iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 600px; /* Fallback for browsers that don't support 100% height */
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.docu-text {
+  font-size: 24px;
+  color: #171717;
+  margin: 0 0 10px 0;
+  font-weight: 600;
+}
+
+
+.status-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Gray palette for NOT APPROVED */
+.status-not-approved {
+  background-color: #e0e0e0;
+  color: #424242;
+  border: 1px solid #9e9e9e;
+}
+
+/* Yellow palette for TO BE REVIEWED */
+.status-to-be-reviewed {
+  background-color: #fff9c4;
+  color: #6d4c41;
+  border: 1px solid #ffd54f;
+}
+
+/* Blue palette for REVIEWED BY ADVISOR */
+.status-reviewed-by-advisor {
+  background-color: #e3f2fd;
+  color: #1565c0;
+  border: 1px solid #90caf9;
+}
+
+/* Green palette for CONFIRMED BY COMPANY */
+.status-confirmed-by-company {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  border: 1px solid #81c784;
+}
+
+/* Other status styles (if needed) */
+.status-approved {
+  background-color: #c8c8c8;
+  color: #212121;
+  border: 1px solid #757575;
+}
+
+
+.document-link {
+  display: inline-flex;
+  align-items: center;
+  color: #666666;
+  font-weight: 600;
+  gap: 8px;
+  border-radius: 4px;
+  padding: 10px 12px;
+  background-color: #f8f9fa;
+  text-decoration: none; /* Optional: removes underline from link */
+}

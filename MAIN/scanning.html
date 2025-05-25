@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  .web-inputs-wrapper {
+    display: flex;
+    gap: 10px;
+    width: 60%;
+    margin: 20px auto;
+  }
+
+  .web-search-container {
+    position: relative;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .web-inputs-wrapper > .web-search-container:not(:last-child) {
+    flex: 3.5;
+  }
+
+  .web-inputs-wrapper > .web-search-container:last-child {
+    flex: 1.5;
+  }
+
+  .web-search-input,
+  .web-search-select,
+  .web-search-button {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 16px;
+    border: 2px solid #5a6478;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.2s ease;
+    box-sizing: border-box;
+  }
+
+  .web-search-input:focus,
+  .web-search-select:focus {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05),
+    0 0 0 0.3rem rgba(0, 123, 255, 0.25);
+    border-color: blue;
+  }
+
+  .web-search-input::placeholder {
+    color: #4a5a73;
+  }
+
+  .web-search-select {
+    background-color: #fff;
+    color: #2E3849;
+    appearance: none;
+  }
+
+  .web-search-button {
+    position: relative;
+    overflow: hidden;
+    background-color: #4aa629;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 16px;
+    z-index: 1;
+  }
+
+  .web-search-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #449e25;
+    transform: rotateX(0deg);
+    transform-origin: top;
+    transition: transform 0.5s ease;
+    z-index: -1;
+  }
+
+  .web-search-button:hover::before {
+    transform: rotateX(90deg);
+  }
+
+  .web-search-button:hover {
+    color: white;
+  }
+
+  .web-search-icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+</style>
+</head>
+<body>
+  <div class="web-inputs-wrapper">
+    <div class="web-search-container">
+      <input type="text" class="web-search-input" placeholder="Enter Keyword">
+      <svg class="web-search-icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#2E3849">
+        <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+      </svg>
+    </div>
+
+    <div class="web-search-container">
+      <select class="web-search-select">
+        <option value="" disabled selected>Select an Option</option>
+        <option value="option1">Option 1</option>
+        <option value="option2">Option 2</option>
+        <option value="option3">Option 3</option>
+      </select>
+      <svg class="web-search-icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#2E3849"><path d="M480-360 280-560h400L480-360Z"/></svg>
+    </div>
+
+    <div class="web-search-container">
+      <input type="text" class="web-search-input" placeholder="Enter Keyword">
+      <svg class="web-search-icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#2E3849">
+        <path d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480Zm0 294q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z"/>
+      </svg>
+    </div>
+
+    <div class="web-search-container">
+      <button class="web-search-button">Search</button>
+    </div>
+  </div>
+</body>
+</html>

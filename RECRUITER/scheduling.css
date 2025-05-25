@@ -1,0 +1,251 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+/* Base modal styles */
+.interview {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Container style (modal content) */
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch; /* Ensure children stretch to the same height */
+  width: 60%;
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+/* Left content styling */
+.left-content {
+  background-color: #d9eafd;
+  padding: 40px 20px;
+  font-family: "Open Sans", sans-serif;
+  width: 40%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Ensure it stretches to match the height */
+}
+
+/* Calendar container styling */
+.calendar-container {
+  width: 60%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Align content to the top */
+  flex-grow: 1; /* Ensure it stretches to match the height */
+}
+
+.details {
+  flex-grow: 1; /* Allow details to fill available space */
+  display: flex;
+  flex-direction: column;
+}
+
+.details h2 {
+  text-align: center;
+  font-size: 30px;
+  color: #2e3849;
+  margin: 0 0 10px 0;
+}
+
+.details p {
+  text-align: center;
+  font-size: 18px;
+  color: #2e3849;
+  margin: 0 0 40px 0;
+}
+
+.interview-details {
+  text-align: center;
+  flex-grow: 1; /* Allow interview details to expand */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.interview-time {
+  font-size: 18px;
+  color: #666;
+}
+
+.interview-date-full {
+  font-size: 16px;
+  color: #666;
+}
+
+.box-day {
+  font-family: "Open Sans", sans-serif;
+  border-radius: 10px;
+  display: inline-block; /* Adjust width to fit content */
+  width: fit-content; /* Alternative option */
+  border: none;
+  background-color: #ffffff;
+  margin: 0 auto 20px auto;
+}
+
+.interview-date {
+  padding: 20px 40px;
+  text-align: center;
+  font-size: 60px;
+  font-weight: 600;
+  color: #2e3849;
+}
+
+.interview-day {
+  background-color: #f0f0f0;
+  color: #2e3849;
+  text-align: center;
+  padding: 15px;
+  font-weight: 600;
+}
+
+.set-interview-btn {
+  margin: 10px auto 0 auto;
+  padding: 10px 20px;
+  background-color: #002b7f;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  align-self: flex-end; /* Push button to bottom */
+  font-weight: 600;
+
+  /* Align text and SVG */
+  display: flex;
+  align-items: center; /* Vertically align */
+  justify-content: center; /* Center the content */
+  gap: 8px; /* Space between text and SVG */
+}
+
+.calendar {
+  flex-grow: 1;
+  border-collapse: collapse;
+  border: none;
+  overflow: hidden;
+  background-color: #ffffff;
+  font-family: "Open Sans", sans-serif;
+}
+
+.calendar td {
+  color: #2e3849;
+  text-align: center;
+}
+
+.calendar td {
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  padding: 15px 20px;
+  font-size: 25px;
+}
+
+.calendar td:hover {
+  background-color: #f0f0f0;
+}
+
+.calendar td.selected {
+  background-color: #002b7f;
+  color: #fff;
+}
+
+.calendar td.selected .day-of-week,
+.calendar td.selected .date {
+  color: #fff;
+}
+
+.calendar-header-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  color: #2e3849;
+  padding: 30px 40px;
+  background-color: #fafafa;
+}
+
+.month-year-display {
+  font-size: 30px;
+  font-weight: bold;
+  color: #2e3849;
+}
+
+.calendar thead tr:first-child th {
+  padding: 0;
+}
+
+.calendar .prev-month,
+.calendar .next-month {
+  cursor: pointer;
+  padding: 5px;
+  border: none;
+  background-color: transparent;
+  border-radius: 3px;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.calendar .prev-month:hover,
+.calendar .next-month:hover {
+  transform: scale(1.2);
+}
+
+.calendar td .day-of-week {
+  font-size: 14px;
+  color: #666666;
+}
+
+.calendar td .date {
+  font-size: 28px;
+  font-weight: 700;
+}
+.calendar-days .day {
+  padding: 30px 0;
+  font-size: 22px;
+  font-weight: normal; /* Optional: Make it lighter */
+  color: #666666; /* Optional: Change color for subtlety */
+  font-weight: 700;
+}
+
+.interview-time {
+  display: flex; /* Enables horizontal alignment */
+  align-items: center; /* Centers items vertically */
+  margin: 0 auto;
+  gap: 5px;
+}
+
+.interview-time input[type="time"] {
+  border: none;
+  background: none;
+  font-size: 16px; /* Adjust as needed */
+  color: #666666;
+  outline: none;
+  font-family: "Open Sans", sans-serif;
+  /* Remove the time picker icon */
+  -webkit-appearance: none; /* Chrome, Safari */
+  -moz-appearance: textfield; /* Firefox */
+  appearance: none; /* Standard */
+}
+
+.interview-time input[type="time"]::-webkit-calendar-picker-indicator {
+  display: none; /* Hides the default icon in Chrome/Safari */
+}
+
+.custom-icon {
+  display: flex; /* Ensures SVG scales properly */
+  align-items: center; /* Center SVG vertically */
+}

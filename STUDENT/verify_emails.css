@@ -1,0 +1,176 @@
+/* General reset */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  background-color: #f8f9fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px; /* Add some padding to ensure content is not too close to edges */
+}
+
+fieldset {
+  border: 1px solid #dee2e6;
+  border-radius: 5px;
+  padding: 20px;
+  max-width: 500px;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 0 auto; /* Center the container */
+}
+
+.logo-message {
+  font-family: "Open Sans", Arial, sans-serif;
+  text-align: center;
+  font-size: 24px;
+  color: #449e25;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+button.btnVerify,
+button.btnEmail {
+  margin: 20px 0 0 0; /* Match button 2's margin */
+  position: relative; /* Required for hover effect */
+  display: flex; /* Flexbox for alignment */
+  align-items: center; /* Center content vertically */
+  gap: 8px; /* Optional for icons or additional content */
+  justify-content: center; /* Center content horizontally */
+  padding: 15px; /* Match button 2's padding */
+  font-size: 16px; /* Match button 2's font size */
+  background-color: #449e29; /* Match button 2's background color */
+  color: white; /* White text color */
+  border: none; /* No border */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor */
+  transition: color 0.3s ease; /* Smooth transition for text color */
+  overflow: hidden; /* Required for hover animation */
+  font-family: "Open Sans", Arial, sans-serif; /* Consistent font */
+  font-weight: 600; /* Bold text */
+  width: 100%; /* Full width */
+  z-index: 1; /* Required for layering */
+}
+
+button.btnVerify::before,
+button.btnEmail::before {
+  content: ""; /* Create hover effect background */
+  position: absolute; /* Positioned relative to the button */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #4aa625; /* Hover background color */
+  transform: rotateX(0deg); /* Initial state */
+  transform-origin: top; /* Rotate from the top */
+  transition: transform 0.5s ease; /* Smooth rotation */
+  z-index: -1; /* Send the background behind the text */
+}
+
+button.btnVerify:hover::before,
+button.btnEmail:hover::before {
+  transform: rotateX(90deg); /* Rotate effect */
+}
+
+button.btnVerify:hover,
+button.btnEmail:hover {
+  color: white; /* Ensure text color remains white on hover */
+}
+
+/* Success message styling */
+.gmail-success {
+  color: rgb(18, 120, 18); /* Match the color with .gmail-success */
+  text-align: center; /* Center align the text */
+  font-size: 1.5rem; /* Adjust font size if needed */
+  margin-bottom: 15px; /* Space below the heading */
+  font-weight: 600;
+}
+
+.gmail-msg-success {
+  color: #6c757d; /* Grey text color */
+  font-size: 1rem; /* Font size */
+  margin-bottom: 15px; /* Space below the paragraph */
+  text-align: center; /* Center align the text */
+  font-weight: 600;
+}
+
+/* Error message styling */
+.gmail-h1 {
+  color: rgb(255, 0, 0); /* Red text color */
+  text-align: center; /* Center align the text */
+  font-size: 1.5rem; /* Adjust font size if needed */
+  margin-bottom: 15px; /* Space below the heading */
+  font-weight: 600;
+}
+
+.gmail-error {
+  color: #6c757d; /* Grey text color */
+  font-size: 1rem; /* Font size */
+  margin-bottom: 15px; /* Space below the paragraph */
+  text-align: center; /* Center align the text */
+  font-weight: 600;
+}
+
+/* New styles for SVG centering */
+.svg-container,
+.svg-container-error {
+  text-align: center; /* Center the SVG horizontally */
+  margin-bottom: 15px;
+}
+
+.svg-container svg {
+  width: 150px; /* Adjust size for responsiveness */
+  height: 150px;
+  stroke: rgb(18, 120, 18); /* Match the color with .gmail-success */
+}
+
+.svg-container-error svg {
+  width: 150px; /* Adjust size for responsiveness */
+  height: 150px;
+  stroke: rgb(255, 0, 0); /* Match the color with .gmail-h1 */
+}
+
+/* Responsive design */
+@media (max-width: 1100px) {
+  fieldset {
+    padding: 15px;
+    max-width: 100%;
+  }
+
+  .gmail-success,
+  .gmail-h1 {
+    font-size: 1.3rem; /* Adjust font size for smaller screens */
+  }
+
+  .gmail-msg-success,
+  .gmail-error {
+    font-size: 0.9rem; /* Adjust font size for smaller screens */
+  }
+
+  .svg-container svg,
+  .svg-container-error svg {
+    width: 70px; /* Adjust SVG size for smaller screens */
+    height: 70px;
+  }
+}
+
+/* Style for the container of the logo */
+.logo-container {
+  text-align: center; /* Centers the content inside the container */
+  margin: 0 auto; /* Centers the container itself if it's a block element */
+}
+
+/* Style for the OTP message */
+.otp-message {
+  text-align: center;
+  font-size: 14px;
+  color: #666666;
+  margin-bottom: 30px;
+}

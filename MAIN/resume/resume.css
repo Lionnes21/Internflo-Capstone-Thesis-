@@ -1,0 +1,941 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+body {
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #f0f0f0;
+}
+
+.container {
+  display: flex;
+  gap: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.form-section {
+  background-color: white;
+  padding: 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 38%;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+}
+.button-wrapper {
+  display: block; /* Separate this from the container's flex layout */
+  text-align: center; /* Center the button container */
+  margin-top: 20px; /* Space between the content and the button */
+}
+
+.button-container button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button-container button:hover {
+  background-color: #45a049;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Hide spinner arrows for Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+.tabs {
+  display: flex;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.tab {
+  margin: 0;
+  flex: 1;
+  padding: 12px 8px;
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-size: 14px;
+  color: #171717;
+  text-align: center;
+  white-space: nowrap;
+  font-weight: 500;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.tab.active {
+  color: #4caf50;
+  font-weight: 600;
+  position: relative;
+}
+
+.tab.active::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #4caf50;
+}
+
+.tab:hover {
+  background-color: #f0f0f0;
+}
+
+.dropdown {
+  position: relative;
+  display: flex;
+  flex: 0.5; /* Reduce the width of the dropdown container */
+}
+
+.dropdown-toggle {
+  flex: 1;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 12px 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  right: 0;
+  top: 100%;
+}
+
+.dropdown-content .tab {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 12px 16px;
+}
+
+.dropdown-content .tab:hover {
+  background-color: #f1f1f1;
+}
+
+.form-content {
+  width: 88%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+
+.form-content > div {
+  display: none;
+}
+
+.form-content > div.active {
+  display: block;
+}
+
+.show {
+  display: block;
+}
+
+.section-title {
+  margin: 0 0 18px 0;
+  color: #171717;
+  font-size: 26px;
+  font-weight: 600;
+}
+
+
+
+/* INPUT FORM */
+
+/* PERSONAL INFO */
+#personal label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+  font-family: "Open Sans", sans-serif;
+}
+
+/* Input Fields */
+.personal-input {
+  width: 100%;
+  font-family: "Open Sans", sans-serif;
+  padding: 12px 10px;
+  margin-bottom: 10px;
+  border: 2px solid #5a6478;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 14px;
+  height: 44px;
+  line-height: 1.2;
+  transition: all 0.2s ease; /* Updated transition */
+}
+
+.personal-input::placeholder {
+  color: #4a5a73;
+}
+
+.personal-input:focus {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05),
+    0 0 0 0.3rem rgba(0, 123, 255, 0.25);
+  border-color: blue;
+  outline: none;
+}
+
+.personal-textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+/* File Upload Fields */
+.file-upload {
+  position: relative;
+  overflow: hidden;
+  margin: 10px 0;
+}
+
+.file-upload input[type="file"] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.file-upload-btn {
+  display: inline-block;
+  padding: 8px 20px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+}
+
+.file-name {
+  margin-left: 10px;
+  font-size: 14px;
+}
+/* PERSONAL INFO */
+
+/* EXPERIENCE */
+
+.experience-input {
+  width: 100%;
+  font-family: "Open Sans", sans-serif;
+  padding: 12px 10px;
+  margin-bottom: 10px;
+  border: 2px solid #5a6478;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 14px;
+  height: 44px;
+  line-height: 1.2;
+  transition: all 0.2s ease;
+}
+
+.experience-input::placeholder {
+  color: #4a5a73;
+}
+
+.experience-input:focus {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05),
+    0 0 0 0.3rem rgba(0, 123, 255, 0.25);
+  border-color: blue;
+  outline: none;
+}
+
+.experience-textarea {
+  height: 100px;
+  resize: vertical;
+}
+.experience-date-container {
+  display: flex;
+  justify-content: space-between;
+}
+.experience-date-field {
+  width: 48%;
+}
+
+.experience-date-field label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.experience-checkboxlabel {
+  margin-left: 5px;
+}
+
+.experience-checkbox-container {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+.experience-add-button {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.experience-add-button:hover {
+  background-color: #45a049;
+}
+/* EXPERIENCE */
+
+/* EDUCATION */
+/* Label Styles for Education Section */
+#education label {
+  display: block;
+}
+
+/* Input Fields */
+.education-input {
+  width: 100%;
+  font-family: "Open Sans", sans-serif;
+  padding: 12px 10px;
+  margin-bottom: 10px;
+  border: 2px solid #5a6478;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 14px;
+  height: 44px;
+  line-height: 1.2;
+  transition: all 0.2s ease;
+}
+
+.education-input::placeholder {
+  color: #4a5a73;
+}
+
+.education-input:focus {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05),
+    0 0 0 0.3rem rgba(0, 123, 255, 0.25);
+  border-color: blue;
+  outline: none;
+}
+
+/* Date Field Container */
+.date-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.date-field {
+  width: 48%;
+}
+
+.date-field label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+/* Checkbox Container */
+.education-checkbox-container {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.checkboxlabel {
+  margin-left: 5px;
+}
+
+/* Add Education Button */
+.add-education {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.add-education:hover {
+  background-color: #45a049;
+}
+
+/* SKILLS */
+/* Label Styles for Skills Section */
+#skills label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+  font-family: "Open Sans", sans-serif;
+}
+
+/* Skills Badges */
+#skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.skill-badge {
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  padding: 8px 15px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  color: #333;
+  cursor: default;
+}
+
+/* Input Fields for Adding Skills */
+.skill-input {
+  width: 100%;
+  font-family: "Open Sans", sans-serif;
+  padding: 12px 10px;
+  margin-bottom: 10px;
+  border: 2px solid #5a6478;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 14px;
+  height: 44px;
+  line-height: 1.2;
+  transition: all 0.2s ease;
+}
+
+.skill-input::placeholder {
+  color: #4a5a73;
+}
+
+.skill-input:focus {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05),
+    0 0 0 0.3rem rgba(0, 123, 255, 0.25);
+  border-color: blue;
+  outline: none;
+}
+
+/* Add Skill Button */
+#add-skill-btn {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+#add-skill-btn:hover {
+  background-color: #45a049;
+}
+
+/* CERTIFICATES */
+/* Label Styles for Certificates Section */
+.cert-input {
+  width: 100%;
+  font-family: "Open Sans", sans-serif;
+  padding: 12px 10px;
+  margin-bottom: 10px;
+  border: 2px solid #5a6478;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 14px;
+  height: 44px;
+  line-height: 1.2;
+  transition: all 0.2s ease;
+}
+
+.cert-input::placeholder {
+  color: #4a5a73;
+}
+
+.cert-input:focus {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05),
+    0 0 0 0.3rem rgba(0, 123, 255, 0.25);
+  border-color: blue;
+  outline: none;
+}
+
+/* Add Certificate Button */
+.add-certificate-button {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.add-certificate-btn:hover {
+  background-color: #45a049;
+}
+
+.cert-date-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cert-date-field {
+  width: 48%;
+}
+
+.cert-date-field label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.resume-section {
+  background-color: white;
+  padding: 80px 50px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 62%; /* Set width to 65% */
+}
+.resume-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 0px 0px 20px 0px;
+}
+.level {
+  margin: 0px 0px 4px 0px;
+}
+
+.educlevel {
+  margin: 0px 0px 10px 0px;
+}
+
+.course {
+  color: #666;
+  font-size: 22px;
+  margin: 0px 0px 8px 0px;
+}
+
+.details {
+  color: #2e3849;
+  margin: 0px 0px 5px 0px;
+}
+
+.name {
+  font-size: 34px;
+  color: #2e3849;
+  margin: 0px 0px 5px 0px;
+}
+
+.career {
+  margin: 0px 0px 20px 0px;
+}
+
+.capabilities {
+  margin: 0px 0px 20px 0px;
+}
+
+.capabilities-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.experience {
+  margin: 0px 0px 20px 0px;
+}
+
+.education {
+  margin: 0px 0px 20px 0px;
+}
+
+.certification {
+  margin: 0px 0px 20px 0px;
+}
+
+.profile-pic {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.signature-pic {
+  max-width: 200px;
+  max-height: 100px;
+  display: block;
+  margin: 0 auto 10px;
+}
+
+.resume-signature {
+  margin-top: 100px;
+  text-align: center;
+}
+
+#resume-name-certification {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+#resume-signiture-text {
+  font-style: italic;
+}
+
+ul {
+  padding: 0px 0px 0px 15px;
+}
+
+hr {
+  margin: 15px 0px;
+  border: none; /* Remove the default border */
+  height: 1px; /* Set the thickness of the line */
+  background-color: #ccc; /* Set the color */
+}
+
+h2 {
+  margin: 0;
+  color: #2e3849;
+}
+
+h1 {
+  margin: 0;
+  color: #2e3849;
+}
+
+p {
+  margin: 0;
+  color: #2e3849;
+}
+
+.back-to-home {
+  display: inline-flex; /* Changed from 'flex' to 'inline-flex' */
+  align-items: center;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #171717; /* Default text color */
+  font-weight: bold;
+  transition: background-color 0.4s, color 0.4s; /* Add transition for color */
+  border: none;
+  border-radius: 5px;
+}
+
+.back-to-home svg {
+  width: 24px;
+  height: 24px;
+  display: block;
+  margin-right: 8px;
+  fill: #171717; /* Default SVG color */
+  transition: fill 0.4s; /* Add transition for the fill color */
+}
+
+.back-to-home:hover {
+  background-color: rgba(50, 49, 49, 0.405); /* Hover background color */
+  color: #fff; /* Change text color to white on hover */
+}
+
+.back-to-home:hover svg {
+  fill: #fff; /* Change SVG fill color to white on hover */
+}
+
+header {
+  width: 95%;
+  margin: 30px auto;
+}
+
+header h1 {
+  font-size: 3em;
+  color: #171717;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.highlight {
+  color: #ff8c00;
+}
+
+header p {
+  font-size: 1.2em;
+  color: #2e3849;
+}
+
+/* Responsive styles */
+/* Tablet Responsive */
+@media (max-width: 870px) {
+  .container {
+    flex-direction: column;
+    padding: 0;
+    gap: 15px;
+  }
+
+  .form-section {
+    width: 100%;
+  }
+
+  .resume-section {
+    width: 90%;
+    padding: 30px 20px;
+  }
+
+  .resume-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-pic {
+    margin-bottom: 20px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .capabilities-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .form-content {
+    width: 92%;
+  }
+
+  header {
+    margin: 20px 0;
+  }
+
+  header h1 {
+    font-size: 24px;
+  }
+
+  .name {
+    font-size: 28px;
+  }
+
+  .course {
+    font-size: 20px;
+  }
+
+  .back-to-home {
+    font-size: 14px;
+    padding: 8px 13px;
+  }
+
+  .back-to-home svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 560px) {
+  .container {
+    padding: 0;
+    gap: 10px;
+  }
+
+  .form-section {
+    width: 100%;
+  }
+
+  .resume-section {
+    width: 95%;
+    padding: 20px 15px;
+  }
+
+  .resume-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-pic {
+    margin-bottom: 15px;
+    width: 120px;
+    height: 120px;
+  }
+
+  .capabilities-grid {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
+  }
+
+  .form-content {
+    width: 95%;
+  }
+
+  header {
+    margin: 15px 0;
+  }
+
+  header h1 {
+    font-size: 20px;
+  }
+
+  .name {
+    font-size: 24px;
+  }
+
+  .course {
+    font-size: 18px;
+  }
+
+  .back-to-home {
+    font-size: 13px;
+    padding: 6px 10px;
+  }
+
+  .back-to-home svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* Print styles with higher specificity */
+@media print {
+  /* Reset any responsive styles that might affect printing */
+  .container {
+    flex-direction: initial !important;
+    padding: initial !important;
+    gap: initial !important;
+  }
+
+  .resume-section {
+    width: 210mm !important;
+    padding: 20mm !important;
+  }
+
+  .resume-header {
+    flex-direction: initial !important;
+    align-items: initial !important;
+    text-align: initial !important;
+  }
+
+  /* Base print styles */
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+    background-color: white !important;
+  }
+
+  /* Hide everything initially */
+  body * {
+    visibility: hidden !important;
+  }
+
+  /* Show only resume section */
+  .resume-section,
+  .resume-section * {
+    visibility: visible !important;
+  }
+
+  .resume-section {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    height: 297mm !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    overflow: hidden !important;
+    background-color: white !important;
+  }
+
+  /* Hide other sections */
+  .form-section,
+  header,
+  .back-to-home,
+  .print-button,
+  .container > *:not(.resume-section) {
+    display: none !important;
+  }
+
+  /* Resume section styles */
+  .resume-section .name {
+    font-size: 30px !important;
+  }
+
+  .resume-section h2 {
+    font-size: 22px !important;
+  }
+
+  .resume-section .course {
+    font-size: 20px !important;
+  }
+
+  .resume-section p,
+  .resume-section .details {
+    font-size: 15px !important;
+  }
+
+  /* Spacing adjustments */
+  .resume-header {
+    margin-bottom: 20px !important;
+  }
+
+  .career,
+  .capabilities,
+  .experience,
+  .education,
+  .certification {
+    margin-bottom: 20px !important;
+  }
+
+  /* Profile picture adjustments */
+  .profile-pic {
+    width: 150px !important;
+    height: 150px !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* Signature section */
+  .resume-signature {
+    margin-top: 40px !important;
+  }
+
+  .signature-pic {
+    max-width: 200px !important;
+    max-height: 100px !important;
+  }
+
+  /* Grid adjustments */
+  .capabilities-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 12px !important;
+    font-size: 14px !important;
+  }
+
+  /* List styling */
+  ul {
+    margin: 5px 0 !important;
+    padding-left: 20px !important;
+  }
+
+  li {
+    margin-bottom: 5px !important;
+  }
+
+  hr {
+    margin: 10px 0 !important;
+  }
+}
