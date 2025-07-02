@@ -7,4 +7,15 @@ while also simplifying the management and monitoring of internships for both stu
 academic background but are also geographically convenient, allowing them to choose opportunities near their location. This makes the internship process more accessible and efficient for all users involved, ultimately creating an experience that bridges the gap between students and industry.
 
 
+
+#### Sample Accounts:
+##### Student:
+###### Email/Student Number: 20210536-N/rogerabarico21@gmail.com
+###### Password: Roger123*
+
+##### Company:
+###### Email: concentrixitph@gmail.com
+###### Password: Concentrix123*
+
+
 ### To access it, go through this website link 'https://internflo-ucc.com/'
